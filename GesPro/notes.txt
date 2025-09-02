@@ -1,0 +1,43 @@
+parties prenantes -> personnes impliqués dans le projet
+comité de pilotage (copil) -> les boss, intérêts des parties prenantes
+problèmes majeurs -> problématiques qu'on ne peut pas régler pour le moment, faire avec
+raison business -> besoin de ROI pas forcément monnaie exemple plainte clients
+exigence -> produit doit faire désiré par les parties prenantes
+
+definir les objectifs projet
+tous doivent être SMART 
+S PECIFIC/SIMPLE obj clair simple et précis ex:augmenter CA 5%
+M ESURABLE ex : ne pas dépasser taux absence de 10%
+A CCEPTABLE/ATTEIGNABLE assez ambitieux mas faisable
+R EALISTE tenir compte des contraintes
+T EMPORAL DEFINED limite tps
+
+EXIGENCES
+MoSCoW
+Must Have
+o
+Should have dans la mesure du possible
+Could have peut faire si pas impact ds autres (si tps et budg)
+o
+Wont have this time but future? luxe
+____
+top down dirigeants
+bottom up clients
+
+Elevator pitch
+POUR commanditaire
+QUI raison
+LE nom projet
+DEVra object
+
+Description produit final
+ce qui est attendu
+taille
+contenu
+
+Attentes qualités
+perf demandés pour le projet
+tps de réponse d'un coup aux echecs ect
+ 
+Approche 
+comment réaliser obj (dev interne / externe ?)
