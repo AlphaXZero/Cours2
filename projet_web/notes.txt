@@ -1,1 +1,9 @@
-None
+<?php début
+echo "";          |print
+$oui = 1          |variable
+$prenom . $nom    |concat
+gettype()         |type
+var_dump()        |type + contenu
+oui.="oui"  non+=1|comme pyhton
+$var = str_replace(search,replace,var)
+$var = ucfirst(var)
