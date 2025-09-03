@@ -1,9 +1,16 @@
 <?php début
-echo "";          |print
-$oui = 1          |variable
-$prenom . $nom    |concat
-gettype()         |type
-var_dump()        |type + contenu
-oui.="oui"  non+=1|comme pyhton
+echo "";                           |print
+$oui = 1                           |variable
+$prenom . $nom                     |concat
+gettype()                          |type
+var_dump()                         |type + contenu
+oui.="oui"  non+=1
 $var = str_replace(search,replace,var)
 $var = ucfirst(var)
+$var = strtoupper(var)
+$var = false true null
+$var = [];                         |list
+print_r(); pour list
+$var[] = 'oui'; ajout fin 
+$var = ['age => 2']
+echo($var['age']) -> 2
