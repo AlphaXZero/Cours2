@@ -1,0 +1,15 @@
+/home/lenovo/Bureau/cours2/projet_poo/Tests/bin/Debug/net8.0/Tests
+/home/lenovo/Bureau/cours2/projet_poo/Tests/bin/Debug/net8.0/Tests.deps.json
+/home/lenovo/Bureau/cours2/projet_poo/Tests/bin/Debug/net8.0/Tests.runtimeconfig.json
+/home/lenovo/Bureau/cours2/projet_poo/Tests/bin/Debug/net8.0/Tests.dll
+/home/lenovo/Bureau/cours2/projet_poo/Tests/bin/Debug/net8.0/Tests.pdb
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/Tests.GeneratedMSBuildEditorConfig.editorconfig
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/Tests.AssemblyInfoInputs.cache
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/Tests.AssemblyInfo.cs
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/Tests.csproj.CoreCompileInputs.cache
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/Tests.sourcelink.json
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/Tests.dll
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/refint/Tests.dll
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/Tests.pdb
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/Tests.genruntimeconfig.cache
+/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/Debug/net8.0/ref/Tests.dll

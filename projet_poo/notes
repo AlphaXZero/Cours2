@@ -1,0 +1,27 @@
+classes
+propriétés -> variables
+méthodes -> fonctions
+dotnet new console -n NOM
+dotnet run 
+.sln les projets dans la solution
+.csproj configuration du projet dépendancs, ect
+.bin fichiers finaux
+.obj fichiers temporaries pdt le processus
+--------------------------------
+Variables
+int, bool, string, const, long, float, double, char, byte, decamal
+int? si jamais il peut y avoir un null dans la var ou Nullable<int>
+var = "oui" | assignation auto
+stockés dans le heap
+alors que classes stockés dans le stack
+${ {}  }
+---------------------------------
+Focntions
+class non{
+public static void oui(){
+
+}
+}
+non.oui()
+---------------------------------
+
