@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Tests
-build_property.ProjectDir = /home/lenovo/Bureau/cours2/projet_poo/Tests/
+build_property.ProjectDir = /home/lenovo/Bureau/cours2/projet_poo/Exos/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

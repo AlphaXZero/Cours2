@@ -24,4 +24,5 @@ public static void oui(){
 }
 non.oui()
 ---------------------------------
-
+arronie Math.Round(var , 2)
+type.Parse(var)

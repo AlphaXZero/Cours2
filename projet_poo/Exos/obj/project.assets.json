@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/lenovo/Bureau/cours2/projet_poo/Tests/Tests.csproj",
+      "projectUniqueName": "/home/lenovo/Bureau/cours2/projet_poo/Exos/Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "/home/lenovo/Bureau/cours2/projet_poo/Tests/Tests.csproj",
+      "projectPath": "/home/lenovo/Bureau/cours2/projet_poo/Exos/Tests.csproj",
       "packagesPath": "/home/lenovo/.nuget/packages/",
-      "outputPath": "/home/lenovo/Bureau/cours2/projet_poo/Tests/obj/",
+      "outputPath": "/home/lenovo/Bureau/cours2/projet_poo/Exos/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/lenovo/.nuget/NuGet/NuGet.Config"
