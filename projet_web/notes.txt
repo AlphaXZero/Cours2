@@ -1,16 +1,18 @@
 <?php début
 echo "";                           |print
 $oui = 1                           |variable
+$var? | si on attend null dans var
 $prenom . $nom                     |concat
 gettype()                          |type
 var_dump()                         |type + contenu
 oui.="oui"  non+=1
 $var = str_replace(search,replace,var)
-$var = ucfirst(var)
-$var = strtoupper(var)
+$var = ucfirst(var) | captalize()
+$var = strtoupper(var) | upper()
 $var = false true null
 $var = [];                         |list
 print_r(); pour list
-$var[] = 'oui'; ajout fin 
-$var = ['age => 2']
+$var[] = 'oui'; ajout fin
+unset($var[x]); retirer indice d'une liste
+$var = ['age' => 2,'name' => 'Jean-Eude']
 echo($var['age']) -> 2

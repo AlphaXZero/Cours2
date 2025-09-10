@@ -1,10 +1,16 @@
 <?php
-$horreur = [
-    ['nomDuFilm' => 'Hellraiser', 'realisateur' => 'Clive Barker', 'annee' => 1987],
-    ['nomDuFilm' => 'La colline a des yeux', 'realisateur' => 'Alexandre Aja', 'annee' => 2006]
+$listeDeFilmsParCategorie = [
+    'scienceFiction' => [
+        ['nomDuFilm' => 'Blade Runner 2049', 'realisateur' => 'Denis Villeneuve', 'annee' => 2017],
+        ['nomDuFilm' => 'Dune', 'realisateur' => 'Denis Villeneuve', 'annee' => 2021],
+        ['nomDuFilm' => 'Minority Report', 'realisateur' => 'Steven Spielberg', 'annee' => 2002]
+    ],
+    'horreur' => [
+        ['nomDuFilm' => 'Hellraiser', 'realisateur' => 'Clive Barker', 'annee' => 1987],
+        ['nomDuFilm' => 'La colline a des yeux', 'realisateur' => 'Alexandre Aja', 'annee' => 2006]
+    ],
+    'comedie' => [['nomDuFilm' => 'Dikkenek', 'realisateur' => 'Olivier van', 'annee' => 2006]]
 ];
-$comedie =  [['nomDuFilm' => 'Dikkenek', 'realisateur' => 'Olivier van', 'annee' => 2006]];
 
-$comedie[] = ['nomDuFilm' => 'Diner des cons', 'realisateur' => 'Frafran', 'annee' => 1998];
-
-print_r($comedie);
+$listeDeFilmsParCategorie['comedie'][] = ['nomDuFilm' => 'LDDC', 'realisateur' => 'Francis Veber', 'annee' => 1998];
+print_r($listeDeFilmsParCategorie);
