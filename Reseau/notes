@@ -1,6 +1,47 @@
+Protocoles
+ASCI 77
+
+
+
+
+---------------------
 ->types de réseaux
-PAN  personal et mobile ex: bluetooth
-LAN local immobile
-MAN metropolitan
-WAN wide
-GAN ex: internet
+PAN (personal) et mobile ex: bluetooth
+LAN(local) immobile relie ordinateur et serveur dans entreprise, protocole ethernet
+MAN(metropolitan) connexion de réseaux entre eux, utilisé par fournisseurs pour relier concentrateurs. 
+WAN(wide) réseau étendu pour grosses entreprises 
+GAN ex: internet 
+----------------------
+->mode connecté
+on se connecte à quelqu'un par exemple : tel et puis envoi
+----------------------
+->mode non-cohttps://www.wireshark.org/
+on envoie au hasard ex:poste
+---------------------
+Modèle OSI | ISO
+théorique mais utilisé dans le PAN
+norme qui explique comment ordinateur communique entre eux
+7 couches dans l'ordre, chaque couche a son matériel
+exemple : routeur -> 3 couches
+aller sur google
+7- ordi mettre dans application, qui va être transformer en adresse ip		| application
+6- tjrs ordi présentation de données avec http par exemple			| application http, dns, ftp, dhcp
+5- création d'une session avec serveur 						| application
+4 transport					|transport par tcp udp quick(nv)
+3 sur réseau					|internet ipv4 ipvc
+2 par fil par exemple (liaison)			|accès réseau PPP, ethernet
+1 converti en binaire (physique)		|accès réseau
+----------------------
+modèle tcp/ip
+
+-> + utilisé en pratique
+protocole couche 3 ip
+protocole couche 4 tcp
+couche ethernet mixe les 2
+
+
+
+
+
+
+
