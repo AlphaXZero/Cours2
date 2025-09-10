@@ -1,5 +1,7 @@
 <?php début
 echo "";                           |print
+echo " {var}"  | f"{var}"
+--> Pour les bools var_dump($var)
 $oui = 1                           |variable
 $var? | si on attend null dans var
 $prenom . $nom                     |concat
@@ -12,7 +14,19 @@ $var = strtoupper(var) | upper()
 $var = false true null
 $var = [];                         |list
 print_r(); pour list
+---------------------------
+ARRAY
 $var[] = 'oui'; ajout fin
 unset($var[x]); retirer indice d'une liste
+quand on unset ça désindex, on peut réindexer une liste avec array_values(array)
 $var = ['age' => 2,'name' => 'Jean-Eude']
 echo($var['age']) -> 2
+array_merge($arr1,$arr2)
+asort($arr) ascending     | return première value ne réindexe pas
+arsort($arr) descending   |
+sort($arr)		  | return premieère valie et réindexe
+uasort($arr) desc	  |
+in_array("str",$arr) 		  | return 1 si dedans rien sinon
+array_search("str",$arr)	  | return index si dedans rien sinon
+
+
