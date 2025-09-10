@@ -31,6 +31,7 @@ in_array("str",$arr) 		  | return 1 si dedans rien sinon
 array_search("str",$arr)	  | return index si dedans rien sinon
 ---------------------------
 CONDITIONS
+is_numeric()
 voncerti tout seul "1"==1 -> True
 === pour que ce soit aussi même type
 if ($var >=xx){
@@ -38,6 +39,21 @@ if ($var >=xx){
 elseif{}
 else{}
 && || xor
+condition ? True : False
+$var = $var2 ?? valeur à assigner sir var2 est nulle
+SWITCH
+switch($var){
+	case 0:
+		echo;
+		break;
+	default:
+		echo;
+}
+------------------------
+Boucles
+while($var>3){{
+ $var++;
+}
 
 
 
