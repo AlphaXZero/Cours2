@@ -8,7 +8,7 @@ class Program
         // Exercice2.Run();
         // Exercice3.Run();
         // Exercice4.Run();
-        // Exercice5.Run();
+        Exercice5.Run();
         // Exercice6.Run();
         // Exercice7.Run();
     }
@@ -61,8 +61,7 @@ class Exercice5
     public static void Run()
     {
         Console.WriteLine("Entrez un nombre à doubler");
-        string? nbrToDubble = Console.ReadLine();
-        Console.WriteLine((int.Parse(nbrToDubble) * 2).ToString());
+        Console.WriteLine(int.TryParse(Console.ReadLine(), out int nbrToDouble) ? nbrToDouble * 2 : "Entrée invalide");
     }
 }
 
