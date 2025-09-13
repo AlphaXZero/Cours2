@@ -1,4 +1,8 @@
 classes
+Console.WriteLine()
+Console.Write()
+$"{var}"
+Console.ReadLine();
 propriétés -> variables
 méthodes -> fonctions
 dotnet new console -n NOM
@@ -9,20 +13,63 @@ dotnet run
 .obj fichiers temporaries pdt le processus
 --------------------------------
 Variables
-int, bool, string, const, long, float, double, char, byte, decamal
+char 'o'
+(decimal) pour faire une division
+int,char, bool, string, const, long, float, double, char, byte, decamal
 int? si jamais il peut y avoir un null dans la var ou Nullable<int>
-    var = "oui" | assignation auto
-    stockés dans le heap
-    alors que classes stockés dans le stack
-    ${ {} }
-    ---------------------------------
-    Focntions
-    class non{
-    public static void oui(){
+var = "oui" | assignation auto
+stockés dans le heap
+alors que classes stockés dans le stack
+${ {} }
+int.MinValue
+int.MaxValue
+---------------------------------
+Focntions
+class non{
+public static void oui(){
+  }
+ }
+non.oui()
+---------------------------------
+arronie Math.Round(var , 2)
+type.Parse(var)
+bool = type.TryParse(var,out default) -> default valeir mis dans var
+Convert.toint32
+string.Contains("dog")
+array.StartsWith("b")
+object.ToString()
+str.Trim() strip() python
+string.IndexOf(".")
+--------------------------------
+Conditions
+|| &&
+if (oui>5){
+}
+else if{}
+--------------------------------
+Arrays
+string[] = new string[3];
+string2[] = ["ooui","oui2"]
+string[][] oui = new string[][]{
+	newstring[] {"a1","a2"}
+}
+string.Length
+string[] names = ["oui","non"]
+foreach(string name in names)
+--------------------------------
+switch (var){
+	case "potato"
+	case "apple":
+		xxxx;
+		break;
+	default:
+		xxx;
+		break;
+}
 
-    }
-    }
-    non.oui()
-    ---------------------------------
-    arronie Math.Round(var , 2)
-    type.Parse(var)
+for (int i = 0; i<1;i++){
+}
+------------------------------
+do{
+}
+while(true);
