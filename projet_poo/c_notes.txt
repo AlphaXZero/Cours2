@@ -2,7 +2,7 @@ classes
 propriétés -> variables
 méthodes -> fonctions
 dotnet new console -n NOM
-dotnet run 
+dotnet run
 .sln les projets dans la solution
 .csproj configuration du projet dépendancs, ect
 .bin fichiers finaux
@@ -11,18 +11,18 @@ dotnet run
 Variables
 int, bool, string, const, long, float, double, char, byte, decamal
 int? si jamais il peut y avoir un null dans la var ou Nullable<int>
-var = "oui" | assignation auto
-stockés dans le heap
-alors que classes stockés dans le stack
-${ {}  }
----------------------------------
-Focntions
-class non{
-public static void oui(){
+    var = "oui" | assignation auto
+    stockés dans le heap
+    alors que classes stockés dans le stack
+    ${ {} }
+    ---------------------------------
+    Focntions
+    class non{
+    public static void oui(){
 
-}
-}
-non.oui()
----------------------------------
-arronie Math.Round(var , 2)
-type.Parse(var)
+    }
+    }
+    non.oui()
+    ---------------------------------
+    arronie Math.Round(var , 2)
+    type.Parse(var)
