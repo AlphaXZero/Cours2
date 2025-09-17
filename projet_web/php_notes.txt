@@ -1,6 +1,6 @@
 <?php début
 echo "";                           |print
-echo " {var}"  | f"{var}"
+echo " {var}"  | f"{var}" -> ne marche pas pour opération math ->utiliser concat
 --> Pour les bools var_dump($var)
 $oui = 1                           |variable
 $var? | si on attend null dans var

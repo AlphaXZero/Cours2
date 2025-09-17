@@ -24,13 +24,13 @@ norme qui explique comment ordinateur communique entre eux
 7 couches dans l'ordre, chaque couche a son matériel
 exemple : routeur -> 3 couches
 aller sur google
-7- ordi mettre dans application, qui va être transformer en adresse ip		| application
-6- tjrs ordi présentation de données avec http par exemple			| application http, dns, ftp, dhcp
-5- création d'une session avec serveur 						| application
-4 transport					|transport par tcp udp quick(nv)
-3 sur réseau					|internet ipv4 ipvc
-2 par fil par exemple (liaison)			|accès réseau PPP, ethernet
-1 converti en binaire (physique)		|accès réseau
+7- application ordi mettre dans application, qui va être transformer en adresse ip		| application
+6- présentation tjrs ordi présentation de données avec http par exemple			| application http, dns, ftp, dhcp
+5- session création d'une session avec serveur               |application
+4  transport					|transport par tcp udp quick(nv)
+3  réseau					|internet ipv4 ipvc
+2  liaison par fil par exemple 			|accès réseau PPP, ethernet
+1  physique converti en binaire (physique)		|accès réseau
 ----------------------
 modèle tcp/ip
 
@@ -38,10 +38,31 @@ modèle tcp/ip
 protocole couche 3 ip
 protocole couche 4 tcp
 couche ethernet mixe les 2
-
-
-
-
-
-
+-----------------------
+physique 
+Lan = impulsion 
+signal s'épuise de base  -> coder le signal  avec +5 -5 
+de base codage manchester 1 fil
+mtn PAM-5 avec 5 niveaux  prendre signal avec bloc de deux bits 
+|->doubler bande passante rj45(8p8c vrai nom)
+5 ème niveau = signal de redondance
+(modulation par treillis en fonction de doublet précédent-> fais le prochain pour détecter ailles lié au protocole pam 5)
+125 millions de symboles par seconde x2 car doublet x4 -> 1 gigabit maximum physique
+full duplex => dans les 2 sens
+--
+après 5 km epuise -> moduler signal avec modem 
+porteuse = sinusoidale 
+perturbation dessus
+--
+cables coaxial plage hz docsis
+------
+fibres
+multimode utilise plusieurs couleurs réflexion
+monomode super fine 
+-----
+réseaux sans fils
+-> pas couches 1 mélange de couche 1 et 2 
+--
+Rj45 8P8C
+câble croisé -> co 2 ordis |e| eux et cable droit -> co ordinateur et router/switch
 
