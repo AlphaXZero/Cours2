@@ -16,6 +16,9 @@ $var = [];                         |list
 print_r(); pour list
 $var = readline('xxxxx');
 rand(1,20)
+is_int() _float ,...
+count() | .length len()
+array_diff(1,2) retoruner tous les éléments qui sont dans 1 moins ceux qui osnt dans 2
 ---------------------------
 ARRAY
 $var[] = 'oui'; ajout fin
@@ -30,6 +33,8 @@ sort($arr)		  | return premieère valie et réindexe
 uasort($arr) desc	  |
 in_array("str",$arr) 		  | return 1 si dedans rien sinon
 array_search("str",$arr)	  | return index si dedans rien sinon
+implode()
+array_sum()
 ---------------------------
 CONDITIONS
 count(arr) | len()
@@ -64,8 +69,13 @@ foreach ($tab as $parcours){
 }
 pour avoir un index aussi
 oreach ($laFineEquipe as $index => $value)
-
-
-
-
-
+----------------------------------
+Fonctions
+function faireOui(int$oui):void{
+	return $oui
+}
+...$valeurs | *args
+marche aussi pour decompresser un tabl dans une fct° 
+$valeurs = [2,3]
+afficherSomme(...$valeurs)
+declare(strict_types=1); au début pour interdire autre che ds fct°
