@@ -16,9 +16,12 @@ $var = [];                         |list
 print_r(); pour list
 $var = readline('xxxxx');
 rand(1,20)
+trim(str) | strip()
 is_int() _float ,...
 count() | .length len()
 array_diff(1,2) retoruner tous les éléments qui sont dans 1 moins ceux qui osnt dans 2
+round(value,nbr_de_chiffres_ap_virgule)
+filter_var($email,FILTER_VALIDATE_EMAIL)
 ---------------------------
 ARRAY
 $var[] = 'oui'; ajout fin
@@ -31,6 +34,9 @@ asort($arr) ascending     | return première value ne réindexe pas
 arsort($arr) descending   |
 sort($arr)		  | return premieère valie et réindexe
 uasort($arr) desc	  |
+array_key_exists()
+empty()
+isset() regarde si variable est définie
 in_array("str",$arr) 		  | return 1 si dedans rien sinon
 array_search("str",$arr)	  | return index si dedans rien sinon
 implode()
