@@ -1,0 +1,7 @@
+1-Management
+manager = directeur, gérer équipe (objectifs)
+succursale = point de vente d'une entreprise
+management opérationel | stratégique 
+		    s/ terrain | long terme
+management agit s/ les personnes/ équipe
+
