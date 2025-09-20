@@ -18,7 +18,6 @@ class Program
         Exercices.Ex13();
     }
 }
-Console.WriteLine("Entrez un nombre pour avoir sa factorielle");
 
 class Exercices
 {
