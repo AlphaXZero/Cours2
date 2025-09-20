@@ -46,7 +46,7 @@ function verifierValiditeChamps($regleDesChamps, $entreesUtilisateur)
         } else {
             if (in_array("type", $regle) && $regle["type"] == "email" && !estValideEmail($regle)) {
                 $messagesErreur[$cle] = "Email invalide!";
-            } else if ($cle == "longueurMin" && $cle == "longueurMax") {
+            } else if (in_array("longueurMin", $regle) && in_array("longueurMax", $regle)) {
             }
         }
     }
