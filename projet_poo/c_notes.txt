@@ -25,6 +25,7 @@ value = oui ?? non; -> si oui est null mets non
 (int) 3 ||| 3 as int? ne déclenche pas d'erreur
 int.MinValue
 int.MaxValue
+34.ToString("00") pour nbr digits
 ---------------------------------
 Focntions
 class non{
@@ -57,9 +58,7 @@ Arrays
 [0..5]
 string[] = new string[3];
 string2[] = ["ooui","oui2"]
-string[][] oui = new string[][]{
-	newstring[] {"a1","a2"}
-}
+int[,] tab = new int[10, 11];
 string.Length
 string[] names = ["oui","non"]
 foreach(string name in names)

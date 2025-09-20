@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Metadata;
 
 class Program
@@ -14,11 +16,10 @@ class Program
         // Exercices.Ex7();
         // Exercices.Ex8();
         // Exercices.Ex9();
-        for (int i = 0; i < 100; i++)
-        {
-            Exercices.Ex10(Exercices.GetValidBBAN());
-        }
-        Exercices.Ex13();
+
+        Exercices.Ex10(Exercices.GetValidBBAN());
+
+        Exercices.Ex16();
     }
 }
 
@@ -164,6 +165,44 @@ class Exercices
             Console.WriteLine($"{i} x {nbr2} = {i * nbr2}");
         }
     }
+
+    public static void Ex14()
+    {
+        int[] tab = [10, 0, 10, 0];
+        int sum = 0;
+        foreach (int i in tab)
+        {
+            sum += i;
+        }
+        Console.WriteLine($"somme : {sum}, moyenne : {(float)sum / (float)tab.Length}");
+    }
+
+    public static void Ex15()
+    {
+        int[] tab = [10, 0, 10, 0];
+        int min = 10000000;
+        int max = -10000000;
+        foreach (int i in tab)
+        {
+            min = i < min ? i : min;
+            max = i > max ? i : max;
+        }
+        Console.WriteLine($"min : {min}, max : {max}");
+    }
+    public static void Ex16()
+    {
+        int[,] tab = new int[10, 10];
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                tab[i, j] = (i * 10) + (j + 1);
+                Console.Write($"{tab[i, j].ToString("00")} ");
+            }
+            Console.WriteLine();
+        }
+    }
 }
+
 
 
