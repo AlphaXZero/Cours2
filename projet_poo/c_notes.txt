@@ -53,7 +53,7 @@ if (oui>5){
 else if{}
 --------------------------------
 Arrays
-1^ du début à la fin
+[1..^1] du début à la fin
 [0..5]
 string[] = new string[3];
 string2[] = ["ooui","oui2"]
