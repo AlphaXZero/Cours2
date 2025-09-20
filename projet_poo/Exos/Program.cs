@@ -14,7 +14,10 @@ class Program
         // Exercices.Ex7();
         // Exercices.Ex8();
         // Exercices.Ex9();
-        Exercices.Ex10(Exercices.Ex10_1());
+        for (int i = 0; i < 100; i++)
+        {
+            Exercices.Ex10(Exercices.GetValidBBAN());
+        }
         Exercices.Ex13();
     }
 }
@@ -112,10 +115,10 @@ class Exercices
     {
         var firstTen = double.Parse(BBAN[0..10]);
         var lastTwo = int.Parse(BBAN[^2..]);
-        Console.WriteLine((firstTen % 97 == lastTwo) || (firstTen % 97 == 0 && lastTwo == 97) ? "valide" : "invalide");
+        Console.WriteLine((firstTen % 97 == lastTwo) || (firstTen % 97 == 0 && lastTwo == 97) ? $"{BBAN} valide" : $"{BBAN} invalide");
     }
 
-    public static string Ex10_1()
+    public static string GetValidBBAN()
     {
         int[] oui = new int[10];
         Random rdn = new Random();
@@ -125,7 +128,7 @@ class Exercices
         }
         var partie1 = String.Join("", oui);
         var nombre = long.Parse(partie1);
-        var bban = partie1 + (nombre % 97 != 0 ? (nombre % 97).ToString() : "97");
+        var bban = partie1 + (nombre % 97 != 0 ? (nombre % 97).ToString("00") : "97");
         return bban;
 
     }
