@@ -63,6 +63,7 @@ string[][] oui = new string[][]{
 string.Length
 string[] names = ["oui","non"]
 foreach(string name in names)
+String.Join(sep,aray);
 --------------------------------
 switch (var){
 	case "potato"

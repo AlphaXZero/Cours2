@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 class Program
 {
@@ -13,9 +14,11 @@ class Program
         // Exercices.Ex7();
         // Exercices.Ex8();
         // Exercices.Ex9();
-        Exercices.Ex10();
+        Exercices.Ex10(Exercices.Ex10_1());
+        Exercices.Ex13();
     }
 }
+Console.WriteLine("Entrez un nombre pour avoir sa factorielle");
 
 class Exercices
 {
@@ -106,14 +109,59 @@ class Exercices
         }
     }
 
-    public static void Ex10()
+    public static void Ex10(string BBAN)
     {
-        var BBAN = "539007547034";
         var firstTen = double.Parse(BBAN[0..10]);
         var lastTwo = int.Parse(BBAN[^2..]);
         Console.WriteLine((firstTen % 97 == lastTwo) || (firstTen % 97 == 0 && lastTwo == 97) ? "valide" : "invalide");
     }
 
+    public static string Ex10_1()
+    {
+        int[] oui = new int[10];
+        Random rdn = new Random();
+        for (int i = 0; i < 10; i++)
+        {
+            oui[i] = rdn.Next(10);
+        }
+        var partie1 = String.Join("", oui);
+        var nombre = long.Parse(partie1);
+        var bban = partie1 + (nombre % 97 != 0 ? (nombre % 97).ToString() : "97");
+        return bban;
+
+    }
+    public static void Ex11()
+    {
+        int sum = 0;
+        for (int i = 2; i <= 100; i += 2)
+        {
+            sum += i;
+        }
+        Console.WriteLine(sum);
+    }
+    public static void Ex12()
+    {
+        Console.WriteLine("Entrez un nombre pour avoir sa factorielle");
+        Console.WriteLine(int.TryParse(Console.ReadLine(), out int nbr2) ? "" : "Entrée invalide");
+        int fact = 1;
+        while (nbr2 > 0)
+        {
+            fact *= nbr2;
+            nbr2 -= 1;
+        }
+        Console.WriteLine(fact);
+
+    }
+
+    public static void Ex13()
+    {
+        Console.WriteLine("Entrez un nombre pour avoir sa table de mult");
+        Console.WriteLine(int.TryParse(Console.ReadLine(), out int nbr2) ? "" : "Entrée invalide");
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine($"{i} x {nbr2} = {i * nbr2}");
+        }
+    }
 }
 
 
