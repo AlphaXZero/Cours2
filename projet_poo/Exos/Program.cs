@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Metadata;
 
+
 class Program
 {
     static void Main(string[] args)
@@ -17,9 +18,10 @@ class Program
         // Exercices.Ex8();
         // Exercices.Ex9();
 
-        Exercices.Ex10(Exercices.GetValidBBAN());
+        // Exercices.Ex10(Exercices.GetValidBBAN());
 
-        Exercices.Ex16();
+        Console.WriteLine(Exercices.Ex18("hautuah"));
+        Console.WriteLine(Exercices.Ex19(20));
     }
 }
 
@@ -201,6 +203,23 @@ class Exercices
             }
             Console.WriteLine();
         }
+    }
+    public static int Ex17(int a)
+    {
+        int sum = 0;
+        for (int i = 2; i <= a; i += 2)
+        {
+            sum += i;
+        }
+        return sum;
+    }
+    public static bool Ex18(string oui)
+    {
+        return oui == String.Join("", oui.Reverse());
+    }
+    public static float Ex19(int celTemp)
+    {
+        return (float)9 / (float)5 + 32;
     }
 }
 

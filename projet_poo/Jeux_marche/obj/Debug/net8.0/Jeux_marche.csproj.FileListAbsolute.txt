@@ -1,0 +1,15 @@
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/bin/Debug/net8.0/Jeux_marche
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/bin/Debug/net8.0/Jeux_marche.deps.json
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/bin/Debug/net8.0/Jeux_marche.runtimeconfig.json
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/bin/Debug/net8.0/Jeux_marche.dll
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/bin/Debug/net8.0/Jeux_marche.pdb
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/Jeux_marche.GeneratedMSBuildEditorConfig.editorconfig
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/Jeux_marche.AssemblyInfoInputs.cache
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/Jeux_marche.AssemblyInfo.cs
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/Jeux_marche.csproj.CoreCompileInputs.cache
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/Jeux_marche.sourcelink.json
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/Jeux_marche.dll
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/refint/Jeux_marche.dll
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/Jeux_marche.pdb
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/Jeux_marche.genruntimeconfig.cache
+/home/lenovo/Bureau/cours2/projet_poo/Jeux_marche/obj/Debug/net8.0/ref/Jeux_marche.dll

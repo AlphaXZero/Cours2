@@ -82,3 +82,11 @@ do{
 while(true);
 -----------------------------
 foreach(var item in collection)
+------------------------------
+méthodes
+static appartiennent à la classe 
+int additionner(int a, int b) => a+b;
+int addd(params int[] nbrs)
+Surcharge additionner(int a, int b)
+addiqtonner(float a, float b)
+
