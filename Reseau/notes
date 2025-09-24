@@ -1,9 +1,5 @@
 Protocoles
 ASCI 77
-
-
-
-
 ---------------------
 ->types de réseaux
 PAN (personal) et mobile ex: bluetooth
@@ -65,4 +61,107 @@ réseaux sans fils
 --
 Rj45 8P8C
 câble croisé -> co 2 ordis |e| eux et cable droit -> co ordinateur et router/switch
+croisé = obsolète
+------
+couche phys transport + organistaion entre les machines du réseau
+2 modes de propagation
+mode de diffusion ->1 seul support de transmission (lan)
+point à point -> plus rapide mais connecté à une seule entité (wan)
+----
+topologie en bus 
+1 dorsale avec tous les autres co dessus en noeud
+1 seul peut transmettre sinon collision
+=> plus utilisé
+----- 
+topologie en anneau
+token ring
+la dorsale se reconnecte sur elle même
+jeton tourne et quelquun peut le prendre pour envoyer 
+jeton part d'un pc et les autres regardent que les jetons ne sont pas vide et aps à eux jusqu'a
+un pc qui reconnait que c'est le sien
+pb => + y a de pc sur le noeud +c'est lent car doivent analyser
+autre pb => bridge pour co 2 réseaux 1 |e| eux  marchent pas très bien car attendre le jeton puis attendre autre côté
+=> lent mais utilisé port usb où pour sécurité
+mai mtn utlisation étoilé avec un MAU mais à l'intérieure anneau
+-----
+topologie en étoile(la + employé actuellement)
+connexion point à point avec concentrateurcurité
+mai mtn utlisation étoilé avec un MAU m
+concentrateur => matériel actif
+hub ou switch qui interagit
+-----
+topologie en arbre
+plusieurs concentrateurs, + ils sont haut + ils ont du contrôle
+----
+topologie en maillage
+ds data center 
+pour augmenter débit + résonnance
+------
+Hub ou concentrateur ou répétiteur
+co +sieurs terminaux |e| eux
+inconvéniant half duplex (peut pas émettre et recevoir en même tps)
+CSMA*CD dans le hub pr gérer collision-> +sieurs règles
+1 chaque terminal écoute si quelqu'un parle
+2 terminal peut parler que si personne parle
+3 en cas de collis° 2 machines qui ont parlés doivent attendre un tps aléatoire
+4 puis peuvent recommence
+bien mais ralentis un peu
+-----
+hub = obsolète => mtn utilisat° de switch qui gère la couche au dessus en +
+------
+couche liaison de données
+réseau local assure co |e| machine et réseau local
+Couche Link s'occupe du traiement avec des trames suivis de payloads pour indiquer nbr de bitss
+protocole couche 2 => ethernet avec switch ĉ matériel
+tjrs 0800 pour ethernet avec avant info à gauche et à droite (address)
+addresse MAC = identifiant unique (ne peut pas être modifié normalement)
+utilisé pour être identifié sur le réseau LOCAL
+addresse MAC 48 bits
+divisé en 2 OUI(numéro de série de l'entreprise) NIC (numéro de série de la carte)
+1 bit I/G indique si address est individuel 0 ou groupe d'addresses(switch) 1
+1 bit U/L indique si addresse universelle 0  ou administrés localement(peut être modifié) 1
+22 bits constructeurs
+puis convertit en hexa par paire de 2 separa par : ou -
+------------------
+-> protocole internet definit les trames qui seront envoyées s/couche phy
+entre 64 et 1518 bits
+3 parties ethernet 2 
+6 bits address reciever 6 bits address sender
+ tag pour séparer 08 00
+puis payload avc data 46 à 1500 bits
+puis crc s/ 4 bits si crc pas bon, carte réseau redemande la trame
+------
+switch
+plusieurs ports
+port 1 pour discute 
+et autres pour transmettre
+--
+avant d'envoyer demande qui est yohan 
+switch envoie requête arp, en mode recherche avec ff ff ff ff ff ff
+switch met dans sa table CAM si quelqu'un disparait retire
+---
+----
+Couche 3 NET
+transmet un paquet d'un réseau à un autre
+routeur et protocole de routage
+PROTCOLE IP 
+carte réseau à 2 addresses 
+-MAC invisible de l'ext 
+-adresse logique indépendante de addresse mac,  
+2types addresse ip 
+ipv4 avc 32 bits avc seulement 4,3 milliard
+ipv6 avc 128 bits 
+s/ un même réseau pas 2 fois la meme addresse
+32 bits en 4octets 0 à 255 en décimal
+rajoute un masque réseau
 
+0.0.0.0 route par défaut utilisée pour atteindre réseaux inconnus
+127.0.0.1 localhost loopback utilisée en interne pour des tests tout revient
+mask = suite de bits à 1 ou 0  exemple /8 => 255
+addresse privée
+10.x.x.x
+ou 172.16.x.x
+ou 192.168.x.x
+Voir syllabus
+addresse de réseau
+reste

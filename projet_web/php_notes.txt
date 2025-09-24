@@ -85,3 +85,77 @@ marche aussi pour decompresser un tabl dans une fct°
 $valeurs = [2,3]
 afficherSomme(...$valeurs)
 declare(strict_types=1); au début pour interdire autre che ds fct°
+array_map('faireOui',$nombres);
+array_map(function($valeurs){return caleurs *2;},$nombres)
+fn(valeur) => * 2,
+---------
+FILTER $nombres = [1,2,3,4,5]
+$nombresImpaires = array_filter($nombres, fn($nombre) => $nombre%2 !==0); 
+---------
+array_reduce($nombres, fn($nbrs,$nombre)=> $acc+$nombre,0) dernier param pour val de base
+-------
+$mots=["Jean-Luc","Claude","Bob"]
+usort($mots, fn($a,$b) => mb_strlen($a)-mb_strlen($b))
+---- 
+php doc
+/**
+* Calcule et affiche le double d'une valeur entière ou flottante.
+*
+* @param float (nombre flottant ou un entier qui sera converti en flottant) $valeur La valeur devant être doublée.
+*
+* @return void (vide) La fonction affiche la valeur doublée mais ne renvoie pas de valeur en dehors de son bloc.
+*/
+---------
+Inclusion de fichiers avec Include et Require
+include = erreur mais continue
+require = fatal error
+require_once 'oui.php'
+require_once 'dossier' . DIRECTOY_SEPARATOR . "fichier2.php";
+__DIR__ racine du projet
+----------
+Manipulation de fichiers
+$monFichier = fopen($chemin, "w" ou "r");
+fclose($monfichier)
+-Lire Pour un fichier texte :
+while(!feof($monfichier);
+	$ligne = fgets($monfichier);
+OU
+echo fread($oui, filesize($cheminFichier))
+-écrire fichier txt
+fwrite($monFicier,"oui")
+----
+remettre le pointeur au début
+fseek($monFichier,0)
+supprimer fichier 
+unlink(__DIR__.DIRECTORY_SEPARATOR.'OUI.TXT')
+
+------
+// Obtenir un verrou exclusif sur le fichier.
+if (flock($monFichier, LOCK_EX))
+{
+    // Réaliser des opérations sur le fichier.
+    fwrite($monFichier, "Steph est l'ami de Jean-Claude." . PHP_EOL);
+
+    // Libère le verrou.
+    flock($monFichier, LOCK_UN);
+}
+-----
+ALTERNATIVE
+$contenuFichier = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'mon_fichier.txt');
+$contenuFichier .= "Ma nouvelle Ligne" . PHP_EOL;
+file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'mon_fichier.txt', $contenuFichier);
+file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'mon_fichier.txt', $contenuFichier,LOCK_EX);
+Ss
+--------------
+JSON
+$cheminFichierJSON = __DIR__ . DIRECTORY_SEPARATOR . 'exemple.json';
+$contenuJSON = file_get_contents($cheminFichierJSON);
+$data = json_decode($contenuJSON, true);
+$exempleModifie = json_encode($data, JSON_PRETTY_PRINT);
+file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'exemple.json', $exempleModifie);
+--------------
+if (file_exists($cheminFichier))
+{
+    echo "$cheminFichier existe !";}
+is_dir($cheminDossier)
+scandir()
