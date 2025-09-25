@@ -2,6 +2,24 @@
 manager = directeur, gérer équipe (objectifs)
 succursale = point de vente d'une entreprise
 management opérationel | stratégique 
-		    s/ terrain | long terme
-management agit s/ les personnes/ équipe
-
+            s/ terrain | long terme
+management agit s/ les personnes / équipe
+------------------------
+2-Organisations du travail/ méthodes d'esclavagisme discrètes
+--
+2.1 taylorisme  ~1900
+->constate que ouvriers mettent des stratagèmes consciemment ou non pour travailler moins,
+et pas productifs si pas de hiérarchie
+->solution = chronomètre tt le monde, mettre quotas et division ingénieurs, contremaîtres(gendarmes) et ouvriers. Enfin éviter les gestes inutiles en rendant le travail simple et répétitif (ĉ robot)
+--
+2.2 fordisme ~1900 mais inspiration de taylor
+->veut changer production pour rendre voiture populaire
+->solution = pire que taylor, ouvrier reste au même endroit et tout arrive à lui (chaine de production)
+=>pas de ralentir tout le monde travail à la même vitesse, remplacement des ouvriers épuisées avec des salaires élevés
+--
+2.3 toyotisme
+->-post WWII relancer prof mais aucune ressource s/ territoire
+  -tailor moins présent car demande de sur-mesure
+->solution = amélioration tailor avec vérification de la qualité. Mtn demande déclenche offre, production en flux tiré, dernières personnalisations repoussées jusqu'au dernier moment. Automatisation.
+ouvriers + formés et + considéré, - de directeurs et + d'échanges
+--2.4 
