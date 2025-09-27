@@ -22,6 +22,8 @@ count() | .length len()
 array_diff(1,2) retoruner tous les éléments qui sont dans 1 moins ceux qui osnt dans 2
 round(value,nbr_de_chiffres_ap_virgule)
 filter_var($email,FILTER_VALIDATE_EMAIL)
+str_contains(string, substring)
+array_rand()
 ---------------------------
 ARRAY
 $var[] = 'oui'; ajout fin
@@ -39,8 +41,9 @@ empty()
 isset() regarde si variable est définie
 in_array("str",$arr) 		  | return 1 si dedans rien sinon
 array_search("str",$arr)	  | return index si dedans rien sinon
-implode()
+implode(separator, array) | join 
 array_sum()
+array_rand( pour avoir nbr random
 ---------------------------
 CONDITIONS
 count(arr) | len()

@@ -17,9 +17,45 @@ et pas productifs si pas de hiérarchie
 ->solution = pire que taylor, ouvrier reste au même endroit et tout arrive à lui (chaine de production)
 =>pas de ralentir tout le monde travail à la même vitesse, remplacement des ouvriers épuisées avec des salaires élevés
 --
-2.3 toyotisme
+2.3 toyotisme  ~fin WWII
 ->-post WWII relancer prof mais aucune ressource s/ territoire
   -tailor moins présent car demande de sur-mesure
 ->solution = amélioration tailor avec vérification de la qualité. Mtn demande déclenche offre, production en flux tiré, dernières personnalisations repoussées jusqu'au dernier moment. Automatisation.
-ouvriers + formés et + considéré, - de directeurs et + d'échanges
---2.4 
+ouvriers + formés et + considérés, - de directeurs et + d'échanges
+--
+2.4 fayolisme ~1920
+->organisaton de l'administration en divisant en 6 fonctions
+-technique prod, transfo, fabricat°
+-commerciale achat & vente
+-financière rechercher + gestion capital
+-comptable inventaire, prévisions, roi
+-sécurité protection biens et personnes
+-ADMINISTRATIVE tâches de la direction => -prevoir plans actions
+					  -organiser trouver bonnes personnes/matériel
+				 	  -commander gérer homme, donner directives, connaître son domaine, donner initiative
+					  -coordonner mettre de l'harmonie entre les acteurs
+					  -controler respect des ordres, vérifier que entreprise va dans le bons sens et ne s'éloigne pas des plans
+------------
+3-Structure juridique
+limité			    	|   illimité
+la part de responsabilité	| j'imagine que s'il l'entreprise est en faillite
+en tant que chef en scindant le | le patron doit retirer le beurre qu'il avait mis
+patrimoine privé		| dans ses épinards
+-société coopérative  res lim   agriculteurs ou smart
+-------------
+4-Structure économique et taille entreprise
+-très petite / micro enreprise
+	- - de 10 travailleurs
+	- CA - de 2 millis
+-petite entreprise 
+	- |e| 10 et 50 travailleurs
+	- CA - de 10 millis
+- moyenne 
+	- |e| 50 et 250 travailleurs
+	- CA - de 50 millis
+- grande
+	- + de 250 travailleurs
+	- + de 50 millis 
+privé si pas intervent° état sinon public
+
+
