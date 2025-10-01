@@ -1,0 +1,317 @@
+
+# Notes PHP — Récapitulatif Complet
+
+---
+
+## Strings
+
+```php
+echo " {$var}";                         // Interpolation
+echo $prenom . $nom;                    // Concaténation
+$var .= "oui";                          // Ajout à une chaîne existante
+$var = str_replace($search, $replace, $var);  // Remplacer une chaîne
+$var = ucfirst($var);                  // Mettre la première lettre en majuscule
+$var = strtoupper($var);              // Tout en majuscule
+trim($str);                            // Supprimer espaces (comme strip())
+str_contains($string, $substring);    // Vérifie si une chaîne contient une autre
+```
+
+## Int
+
+```php
+$non += 1;                              // Incrémentation
+is_int($var);                           // Vérifie si entier
+is_float($var);                         // Vérifie si flottant
+is_numeric($var);                       // Vérifie si nombre
+round($valeur, 2);                      // Arrondir
+rand(1, 20);                            // Nombre aléatoire
+```
+
+---
+
+## Types et Debug
+
+```php
+gettype($var);                          // Type de la variable
+var_dump($var);                         // Affiche type + contenu
+print_r($arr);                          // Affiche une liste lisible
+empty($var);                            // Est vide ?
+isset($var);                            // Est définie ?
+```
+
+---
+
+## Arrays
+
+### Manipulation
+
+```php
+$var = [];                              // Créer un tableau
+$var[] = 'oui';                         // Ajouter à la fin
+unset($var[0]);                         // Supprimer un élément
+$var = array_values($var);             // Réindexer
+array_merge($arr1, $arr2);             // Fusionner
+array_diff($arr1, $arr2);              // Différence
+array_sum($arr);                       // Somme des éléments
+array_rand($arr);                      // Élement aléatoire
+in_array("str", $arr);                 // Contient ?
+array_search("str", $arr);            // Cherche une valeur
+implode(",", $arr);                    // Convertir en chaîne
+count($arr);                           // Nombre d’éléments
+array_key_exists("clé", $arr);         // Clé existe ?
+```
+
+### Tableaux associatifs
+
+```php
+$var = ['age' => 2, 'name' => 'Jean-Eude'];
+echo $var['age'];                      // Accès à la valeur
+```
+
+### Tri
+
+```php
+asort($arr);                           // Ascendant (conserve les clés)
+arsort($arr);                          // Descendant (conserve les clés)
+sort($arr);                            // Ascendant (réindexe)
+uasort($arr, fn($a, $b) => $a <=> $b); // Tri personnalisé
+```
+
+---
+
+## Conditions
+
+```php
+if ($var >= 5) {
+    // ...
+} elseif (...) {
+    // ...
+} else {
+    // ...
+}
+
+$var = $var2 ?? 'valeur par défaut';  // Null coalescing
+$condition ? 'vrai' : 'faux';        // Ternaire
+
+switch($var) {
+    case 0:
+        echo 'zéro';
+        break;
+    default:
+        echo 'autre';
+}
+```
+
+---
+
+## Boucles
+
+### While
+
+```php
+while ($var > 3) {
+    $var++;
+}
+```
+
+### For
+
+```php
+for ($i = 1; $i < 6; $i++) {
+    echo $i;
+}
+```
+
+### Foreach
+
+```php
+$tab = ['Claude', 'Jean'];
+foreach ($tab as $value) {
+    echo $value;
+}
+
+// Avec index :
+foreach ($tab as $index => $value) {
+    echo "$index : $value";
+}
+```
+
+---
+
+## Fonctions
+
+```php
+function faireOui(int $oui): void {
+    echo $oui;
+}
+```
+
+* Paramètres optionnels : `...$args` (splat operator)
+* Décompression tableau :
+
+```php
+$valeurs = [2, 3];
+afficherSomme(...$valeurs);
+```
+
+---
+
+## 🔁 Fonctions sur tableaux
+
+### `array_map()`
+
+```php
+array_map('faireOui', $nombres);
+
+array_map(function($val) {
+    return $val * 2;
+}, $nombres);
+
+// Arrow function
+array_map(fn($val) => $val * 2, $nombres);
+```
+
+### `array_filter()`
+
+```php
+$nombresImpairs = array_filter($nombres, fn($n) => $n % 2 !== 0);
+```
+
+### `array_reduce()`
+
+```php
+$somme = array_reduce($nombres, fn($acc, $n) => $acc + $n, 0);
+```
+
+### `usort()`
+
+```php
+$mots = ["Jean-Luc", "Claude", "Bob"];
+usort($mots, fn($a, $b) => mb_strlen($a) - mb_strlen($b));
+```
+
+---
+
+## PHPDoc (Documentation)
+
+```php
+/**
+ * Calcule et affiche le double d'une valeur entière ou flottante.
+ *
+ * @param float $valeur La valeur devant être doublée.
+ * @return void
+ */
+```
+
+---
+
+## Inclusion de fichiers
+
+```php
+include 'fichier.php';         // Continue en cas d'erreur
+require 'fichier.php';         // Erreur fatale
+require_once 'fichier.php';    // Une seule inclusion
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'fichier.php';
+```
+
+---
+
+## 📁 Fichiers
+
+### Lire un fichier
+
+```php
+$monFichier = fopen($chemin, "r");
+while (!feof($monFichier)) {
+    $ligne = fgets($monFichier);
+}
+fclose($monFichier);
+```
+
+### Lire rapidement
+
+```php
+$contenu = fread($monFichier, filesize($chemin));
+```
+
+### Écrire dans un fichier
+
+```php
+$monFichier = fopen($chemin, "w");
+fwrite($monFichier, "Texte");
+fclose($monFichier);
+```
+
+### Remettre le pointeur au début
+
+```php
+fseek($monFichier, 0);
+```
+
+### Supprimer un fichier
+
+```php
+unlink(__DIR__ . DIRECTORY_SEPARATOR . 'fichier.txt');
+```
+
+### Verrouillage (exclusif)
+
+```php
+if (flock($monFichier, LOCK_EX)) {
+    fwrite($monFichier, "Ligne");
+    flock($monFichier, LOCK_UN);
+}
+```
+
+### Alternative simplifiée
+
+```php
+$contenu = file_get_contents(__DIR__ . '/fichier.txt');
+$contenu .= "Nouvelle ligne\n";
+file_put_contents(__DIR__ . '/fichier.txt', $contenu, LOCK_EX);
+```
+
+---
+
+## JSON
+
+```php
+$chemin = __DIR__ . '/exemple.json';
+$contenuJSON = file_get_contents($chemin);
+$data = json_decode($contenuJSON, true);
+$dataModifie = json_encode($data, JSON_PRETTY_PRINT);
+file_put_contents($chemin, $dataModifie);
+```
+
+---
+
+## Fonctions système / fichiers
+
+```php
+if (file_exists($chemin)) {
+    echo "$chemin existe !";
+}
+
+is_dir($chemin);
+scandir($chemin);              // Liste des fichiers/dossiers
+```
+
+---
+
+## Entrées utilisateur
+
+```php
+$var = readline('Votre nom : ');
+```
+
+---
+
+## Validation d’email
+
+```php
+filter_var($email, FILTER_VALIDATE_EMAIL);
+```
+
+---
+
+# Notes
