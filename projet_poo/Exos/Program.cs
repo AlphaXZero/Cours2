@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Metrics;
 using System.Reflection.Metadata;
 
 
@@ -20,11 +21,11 @@ class Program
 
         // Exercices.Ex10(Exercices.GetValidBBAN());
 
-        Console.WriteLine(Exercices.Ex18("hautuah"));
-        Console.WriteLine(Exercices.Ex19(20));
+        // Console.WriteLine(Exercices.Ex18("hautuah"));
+        // Console.WriteLine(Exercices.Ex19(20));
+        Exercices.Ex21();
     }
 }
-
 class Exercices
 {
     public static void Ex1()
@@ -220,6 +221,50 @@ class Exercices
     public static float Ex19(int celTemp)
     {
         return (float)9 / (float)5 + 32;
+    }
+    public static void Ex20()
+    {
+        var primeNumber = new List<int>();
+        Console.WriteLine("Entrez un nombre");
+        var user_input = Console.ReadLine();
+        int counter = 2;
+        while (counter < int.Parse(user_input))
+        {
+            if (isPrime(counter))
+            {
+                primeNumber.Add(counter);
+            }
+            counter += 1;
+        }
+        Console.WriteLine(string.Join(" ", primeNumber));
+    }
+
+
+    public static void Ex21()
+    {
+        var primeNumber = new List<int>();
+        Console.WriteLine("Entrez un nombre");
+        var user_input = Console.ReadLine();
+        for (int i = 2; primeNumber.Count < int.Parse(user_input); i++)
+        {
+            if (isPrime(i))
+            {
+                primeNumber.Add(i);
+            }
+        }
+        Console.WriteLine(string.Join(" ", primeNumber));
+    }
+    public static bool isPrime(int n)
+    {
+        for (int i = 2; i <= (int)Math.Sqrt(n); i++)
+        {
+            Console.WriteLine(i);
+            if (n % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

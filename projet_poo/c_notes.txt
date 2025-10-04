@@ -89,4 +89,13 @@ int additionner(int a, int b) => a+b;
 int addd(params int[] nbrs)
 Surcharge additionner(int a, int b)
 addiqtonner(float a, float b)
-
+----------------
+var maListe= new ArrayList();
+--
+var MaHashtable = new Hashtablee();
+maHashtavle["ouo"]=43;
+forearch (dicitionnaryentry entry in myhastable)
+--
+pareil qu'au dessus mais avec 
+var maliste=new List<int>
+Dictionary = new Dicitineary<string,int>
