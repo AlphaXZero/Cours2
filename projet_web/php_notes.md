@@ -314,4 +314,26 @@ filter_var($email, FILTER_VALIDATE_EMAIL);
 
 ---
 
-# Notes
+# Pages dynamiques avec php 
+## base
+```php
+<?php require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php'; ?>
+<h2>Bienvenue sur votre site web !</h2>
+```
+## variable php dans html
+
+```php
+<?php
+$metaDescription = "description de la page actuelle...";
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'header.php';
+?>// dans index.php
+```
+```html
+dans header.php
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?=$metaDescription?>">
+    <title>Mon Premier Modèle de Page Dynamique</title>
+</head>
+```
