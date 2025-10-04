@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Reflection.Metadata;
 
 
@@ -23,7 +25,12 @@ class Program
 
         // Console.WriteLine(Exercices.Ex18("hautuah"));
         // Console.WriteLine(Exercices.Ex19(20));
-        Exercices.Ex21();
+        // Exercices.Ex21();
+        // Celsius temp = new Celsius(20);
+        // Console.WriteLine($"{temp.temperature} => {temp.convertir().temperature}");
+        Voiture lamienne = new Voiture(100, Marques.BMW);
+        lamienne.accelerer(20);
+        Console.WriteLine(lamienne.ToString());
     }
 }
 class Exercices
@@ -269,4 +276,54 @@ class Exercices
 }
 
 
+struct Celsius
+{
+    public double temperature;
+    public Celsius(double temp)
+    {
+        temperature = temp;
+    }
+    public Fahrenheit convertir()
+    {
+        return new Fahrenheit(temperature * 9 / 5 + 32);
+    }
+}
+struct Fahrenheit
+{
+    public double temperature;
+    public Fahrenheit(double temp)
+    {
+        temperature = temp;
+    }
+    public Celsius convertir()
+    {
+        return new Celsius((temperature - 32) * 5 / 9);
+    }
+}
 
+enum Marques
+{
+    Mercedes, BMW
+}
+enum Vitre
+{
+    Teinte, Blanc
+}
+struct Voiture
+{
+    public int vitesse;
+    public Marques marque;
+    public Voiture(int vit, Marques marq)
+    {
+        vitesse = vit;
+        marque = marq;
+    }
+    public void accelerer(int accel)
+    {
+        vitesse += accel;
+    }
+    public override string ToString()
+    {
+        return $"la voiture {marque} roule à {vitesse}";
+    }
+}

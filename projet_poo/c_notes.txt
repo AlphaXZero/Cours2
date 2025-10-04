@@ -98,4 +98,25 @@ forearch (dicitionnaryentry entry in myhastable)
 --
 pareil qu'au dessus mais avec 
 var maliste=new List<int>
+nombres.Add(1);
 Dictionary = new Dicitineary<string,int>
+string.Join(", ", nombres)
+-----------------------
+Structure 
+données indépendatnes différence avec class
+
+struct Point
+{
+	public Point(int t){
+		x=t;
+	}
+	public int X;
+	public int Y;
+} 
+Point point;
+point.x =oui
+Point oui = new Point(10);
+------------------------
+énumérations
+enum Carburant{Essence,Diesil, Gaz,Elec}
+Carburant carb = Carburant.Essence
