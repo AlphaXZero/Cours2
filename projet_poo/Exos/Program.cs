@@ -28,7 +28,7 @@ class Program
         // Exercices.Ex21();
         // Celsius temp = new Celsius(20);
         // Console.WriteLine($"{temp.temperature} => {temp.convertir().temperature}");
-        Voiture lamienne = new Voiture(100, Marques.BMW);
+        Voiture lamienne = new(100, 0);
         lamienne.accelerer(20);
         Console.WriteLine(lamienne.ToString());
     }
@@ -309,11 +309,11 @@ enum Vitre
 {
     Teinte, Blanc
 }
-struct Voiture
+struct Voiturette
 {
     public int vitesse;
     public Marques marque;
-    public Voiture(int vit, Marques marq)
+    public Voiturette(int vit, Marques marq)
     {
         vitesse = vit;
         marque = marq;
@@ -325,5 +325,34 @@ struct Voiture
     public override string ToString()
     {
         return $"la voiture {marque} roule à {vitesse}";
+    }
+}
+
+class Voiture(int vitesse, Marques marque)
+{
+    public int Vitesse = vitesse;
+    public Marques Marque = marque;
+    public void accelerer(int accel)
+    {
+        Vitesse += accel;
+    }
+    public override string ToString()
+    {
+        return $"la voiture {Marque} roule à {Vitesse}";
+    }
+}
+
+class Chat(string couleur, string nom, int age)
+{
+    public string Couleur = couleur;
+    public string Nom = nom;
+    public int Age = age;
+    public void miauler()
+    {
+        Console.WriteLine("miaouuu");
+    }
+    public void vieillir(int annee)
+    {
+        Age += 1;
     }
 }

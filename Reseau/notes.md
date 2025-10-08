@@ -61,3 +61,69 @@ but = support pour transport des données binaires. Câbles ou ondes.
 
 ### Topologie en bus 
 - 1 dorsale avec tous les autres co dessus
+
+
+## Routage
+
+En réalité, le masque ne sert qu'au routage. Si ordis sur même réseau, ils peuvent dialoguer via la couhce LNK.     
+Si réseaux différents, système envoie les données en couche NET. le routeur dispose de plusieurs interfaces réseau. le routeur dispose de plusieurs adresses MAC.   
+Le routeur possède une table de routage.
+
+### IPV6 :
+- espace d'adressage quasi infini.
+- Simplifie le routage.
+- On peut condigurer automatiquement des adresses.
+- Unicast (point à point), Multicast (sous-groupe), anycast (celui qui a besoin va chercher info)
+
+Elle est composée de 8 x 4 chiffres hexa séparés par ':'.
+Souvent quand :0000:0000: => :::
+
+### Protocole ARP
+
+Rôle = correspondre adress IP et adress MAC.    
+Envoie un message partout et attend un retour.  
+"Je suis xx je dois joindre xx est-il sur réseau local ??"  
+"Je suis Macadress xx et ip xx et je réponds à xxx"
+
+### Protocole ICMP
+
+permet au routeur de gérer infos relatives aux erreurs des machines connectées sur le réseau.
+
+# Transport
+
+Pour la couche 4, cette adress spécifique se nomme le port. Utlisé par les couches du dessus pour écouter les clients.  
+les 1024 premiers ports sont réservés.
+
+- Port 80 = porte éntrée internet (port HTTP).    
+- Port 143 = port imap. (entrée des emails).  
+- Port 20 et 21 = port FTP.   
+- Port 443 = ports https.
+- Port 25 = port smtp (envoie mail)
+- Port 53 = DNS
+
+Ordi peut être client et seveur. => netstat -an.    
+
+Avant de se co au serv google. L'os va spécifier aléatoirment un port de connexion après les 1024. google utilisera ce port pour envoyer les réponses.  
+Le serveur enverra en réponse un autre port choisi aléatoirment.
+
+## TCP VS UDP
+
+Transport control protocol = plus lent mais vérifie que bien arrivé  .   
+Udp envoie juste.
+
+Tcp = le plus utilisé. Permet transport fiable.     
+Il reste en contact avec le correspondant.      
+Contrôle chaque octet, Tcp va établir une co avec un système nommé THREE-WAY-HANDSHAKE
+
+## QUICK
+Mélange d'udp et tcp dévellopé par google.      
+C'est le protocole de base au HTTP 3.0.
+
+## Firewall
+Le firewall va masquer les ports d'un ordinateur.       
+Firewall matériel est inclus dans la box, ça masque tous les ports sauf le port 81 par exemple.     
+Firewall software va mettre des gardiens sur ces ports ouverts.
+
+# Application
+
+Gérée par OS. DNS, DHCP et sockets.

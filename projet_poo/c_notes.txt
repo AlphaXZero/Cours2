@@ -116,7 +116,35 @@ struct Point
 Point point;
 point.x =oui
 Point oui = new Point(10);
+public override string ToString(){
+	
+}
 ------------------------
 énumérations
 enum Carburant{Essence,Diesil, Gaz,Elec}
 Carburant carb = Carburant.Essence
+-----------------------
+Class
+Personne personne1=new();
+class Personne{
+	
+}
+class Personne(string nom, string prenom){
+	public string Nom = nom;
+	public string Prenim = prenom;
+}
+mot clé partial => pour mettre sur +sieurs fichiers genre des bouts de code un pue partout
+parital class Person{
+	int ouoi=1;
+	}
+	partial clas sPerson
+{
+	int non =2
+}
+--
+static class exemple {
+public static int Compteur=0
+}
+pas instancié=> uniquement var statiques dedans
+
+
