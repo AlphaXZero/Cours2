@@ -107,3 +107,23 @@ privé si pas intervent° état sinon public
 ### Structure matricielle
 - découpage par fonction/produits et par division
 - chaque salarié supervisé par 2 responsables
+
+## Fluxs 
+### Flux poussé
+Produire avant la commande en se basant sur les commandes précedentes et la situat° du marché.
+
+### Flux tiré
+Produit uniquement à la commande. Mais on peut avoir des stocks exemple : moteur, châsis, ...
+
+### Flux tendu
+Pas de stocks. 
+
+## Devenir indépendant
+- Choisir personne morale ou physique.
+- Rédiger les status, avec un notaire obligatoire si personne morale. ~1000€ 
+- Demander un n° d'entreprise (TVA) à un guichet d'entreprise. (ex : UCM, Sécurex, Asserta, ...) ~250€
+
+# PUB SMART - Inscrivez vous c'est super cool, 6% mais ils s'occupent des impayés clients - PUB SMART
+
+## Analyse SWOT
+Opportunités, ce qui extérieur à l'entreprise, environnement éco, politique, sociale, climatique

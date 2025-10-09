@@ -333,7 +333,19 @@ dans header.php
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?=$metaDescription?>">
+    <meta name="description" content="<?=$metaDescription ?? ""?>">
     <title>Mon Premier Modèle de Page Dynamique</title>
 </head>
 ```
+\<?=$var> == <?php echo "$var">
+
+## Formulaires
+ ```html
+ <form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+ ```
