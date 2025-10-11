@@ -29,6 +29,7 @@ class Program
         // Celsius temp = new Celsius(20);
         // Console.WriteLine($"{temp.temperature} => {temp.convertir().temperature}");
         Voiture lamienne = new(100, 0);
+        Console.WriteLine(lamienne.ToString());
         lamienne.accelerer(20);
         Console.WriteLine(lamienne.ToString());
     }

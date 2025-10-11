@@ -1,11 +1,11 @@
-## Types de réseaux
+# Types de réseaux
 - PAN (personal) ex : bluetooth
 - LAN (local) relie ordinateur et serveurs, ex : réseau entreprise
 - MAN (metropolitan) connexion de réseaux entre eux, utilisé par fournisseurs pour relier concentrateurs
 - WAN (wide) réseau étendu
 - GAN internet
 
-## Modèle OSI
+# Modèle OSI
 Modèle théorique, norme qui explique comment ordinateur communique entre eux.
 - 7. Application (on intéragit avec ordi)
 - 6. Présentation (ordi va faire une requête http)
@@ -20,7 +20,7 @@ Pas utilisé en pratique car
 - trop complet/complexe, tcp/ip + opti et efficace
 - c'était lent comparé au tcp/ip
 
-## Modèle TCP/IP 
+# Modèle TCP/IP 
 il n'y a que 4 couches
 
  OSI | TCP/IP 
@@ -35,6 +35,14 @@ Physique|PPP, Frame Relay, Ethernet
 
 - la couche liason et physique sont combinées grâce au protocole ethernet
 - la couche réseau devient internet, c'est ce qui réalise la jonction entre les différents réseaux, elle injecte les trames IP(pauqets) dans un réseau et les achemine jusqu'a destination, c'est donc le protocle IP
+-la couche transport est la même, transporte les données d'un endroit à un autre. avec TCP/UDP.
+
+# Modèle hybride
+- Application
+- Transport (segment)
+- Réseau (paquet)
+- Liaison de données (trames) 
+- Physique
 
 ## La couche Physique
 but = support pour transport des données binaires. Câbles ou ondes.
@@ -42,25 +50,71 @@ but = support pour transport des données binaires. Câbles ou ondes.
 ### PAM-5
 - C'est le codage pour les câbles. + 5V ou - 5V.
 - Combiné avec Modulation par Treillis.
-- 5 ème lvl = redondance.
+- 5 ème lvl = redondance et modulation par Treillis.
 
-### RJ45 (8p8c)
+#### RJ45 (8p8c)
 - Quatres paires de fils en full-duplex (2 sens). Max 1 GB/s.
 - Câble droit pr co ordi à switch/routeur.
 - Câble croisé pr co 2 ordis ensemble. Obsolète.
 - S'épuise après 5km.
 
-### Firbre optique 
+#### Firbre optique 
 - Multimode = toutes les couleurs. LAN car 2KM.
 - Monomode = 1 seul longueur d'onde. WAN car moins d'atténuation et 100km.
 
-### Réseaux sans fils
+#### Réseaux sans fils
 - mélange de couche 1 et 2.
 
-## Topologies
+### Topologies
+- Topologie en bus   
+ -> 1 dorsale avec tous les autres co dessus
+- Topologie en étoile   
+ -> tous les ordis sont réliés à un concentrateur, si un câble tombe c'est ok car un seul pc tombe.
+- Topologie en anneau   
+ -> semblable à bus mais la dorsale est co à elle-même, un seul noeud ne peut communiquer à la fois, en pratique il y a un token qui parcourir l'anneau et seul le noeud qui a le token peut communqiuer sur l'anneau. Mtn géré par un MAU (répartiteur).
+- Maillage  
+ -> évolution de l'étoile, plusieurs liasons point par point, chaque noeud est connecté à chaque autre noeud. Onéreux car chauqe noeud doit avoir autant de carte réseau et câble que de noeud.
+- Arbre 
+ -> dérive de l'étoile, faire des branches, moins couteux que maillage.
 
-### Topologie en bus 
-- 1 dorsale avec tous les autres co dessus
+### Le hub
+Ou répétiteur, pièce d'équipement de la topolgie en étoile. Couche 1, gère les données bruts, amplifie le signal reçu et transfère à tous les autres.   
+Pb car envoie à tout le monde, qd bcp de co -> collisions de paquets.   
+-> obsolète, mtn switch qui gère couche 2 aussi.
+
+### CSMA/CD et CA
+- Pour éviter collision, CSMA/CD (collision detection).     
+ -> chaque terminal écoute en perma     
+ -> terminal peut parler qui si personne parle     
+ -> si collision, les 2 machines doivent attendre un tps random     
+ -> reparle
+
+ - CSMA/CA (Collision avoidance)      
+ -> envoie msg d'avertissement avant de parler, si collision avert alors CSMA/CD
+
+## La couche liaison
+Assure co entre machines sur un réseau local. Tranférer données entre différents terminaux et corriger certaines erreurs de la couche physique.
+
+### Réseau ethernet et adresse mac
+#### MAC
+Addresse mac = identifiant unique pour machine.
+Composée de 48 bits, 6 octets écrits en hexa séparé par :.
+Décomposé comme suit :
+- 1bit I/G pour indiquer si adresse individuelle ou groupe d'addresse (switch)
+- 1bit U/L pour adresse universelle ou administrée localement
+- 22 bits pour identifier l'entreprise qui a fait l'équipement réseau.
+- 24 bits d'adresse unique. identifiant de la carte réseau.
+
+L'addresse FF:FF:FF:FF:FF:FF est l'adresse de broadcast qui permet d'adresser toutes les machines d'un réseau local.
+
+#### La trame ethernet
+Protcole le plus employé dans la couche 2.
+- Min 64 octets et max 1518.
+6oct destination MAC | 6oct source MAC | 2oct EtherType | 46 - 1500 oct Payload | 4oct crc
+
+#### switch
+S'occupe de la couche 2. Boîtier avec plusieurs 8p8, contrairement au hub qui envoie partout, le switch décode l'entête de la trame pour l'envoyer au bon port
+
 
 
 ## Routage
