@@ -5,7 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Reflection.Metadata;
-
+using BenchmarkDotNet.Disassemblers;
+using Bibliotheque;
+using Utilisateurs;
 
 class Program
 {
@@ -28,10 +30,20 @@ class Program
         // Exercices.Ex21();
         // Celsius temp = new Celsius(20);
         // Console.WriteLine($"{temp.temperature} => {temp.convertir().temperature}");
-        Voiture lamienne = new(100, 0);
-        Console.WriteLine(lamienne.ToString());
-        lamienne.accelerer(20);
-        Console.WriteLine(lamienne.ToString());
+        Voiture lamienne = new(100, 0, new("V6", 6), new List<Roue> { new(20), new(10) });
+        Conducteur pierre = new("Pierre", lamienne);
+        pierre.Conduire();
+        pierre.Accelerer(20);
+        pierre.Conduire();
+        lamienne.AfficherDetails();
+
+        // Livre oui = new("mobydick", "jean de la fontaine", 1999);
+        // Livre non = new("1986", "Tchernobyl", 1987);
+        // Livre non2 = new("2001", "infini", 2042);
+        // Etudiant jean = new("Pierre", "Marc", new List<Livre> { oui, non });
+        // jean.AfficherInfo();
+        // jean.Livres.Add(non2);
+        // jean.AfficherInfo();
     }
 }
 class Exercices
@@ -329,13 +341,19 @@ struct Voiturette
     }
 }
 
-class Voiture(int vitesse, Marques marque)
+class Voiture(int vitesse, Marques marque, Moteur moteur, List<Roue> roue)
 {
     public int Vitesse = vitesse;
     public Marques Marque = marque;
-    public void accelerer(int accel)
+    public Moteur Moteur = moteur;
+    public List<Roue> Roue = roue;
+    public void Accelerer(int accel)
     {
         Vitesse += accel;
+    }
+    public void AfficherDetails()
+    {
+        Console.WriteLine($"possède un {Moteur.Modele} de {Moteur.Cylindre} cylindres et possède {Roue.Count()} roues : ({String.Join(", ", Roue.Select(n => n.ToString()))})");
     }
     public override string ToString()
     {
@@ -357,3 +375,36 @@ class Chat(string couleur, string nom, int age)
         Age += 1;
     }
 }
+
+class Conducteur(string nom, Voiture voiture)
+{
+    public string Nom = nom;
+    public Voiture Voiture = voiture;
+
+    public void Conduire()
+    {
+        Console.WriteLine($"{Nom} conduit. {Voiture}");
+    }
+
+    public void Accelerer(int valeur)
+    {
+        Voiture.Accelerer(valeur);
+    }
+}
+
+class Moteur(string modele, int cylindre)
+{
+    public string Modele = modele;
+    public int Cylindre = cylindre;
+}
+
+class Roue(int pouces)
+{
+    public int Pouces = pouces;
+    public override string ToString()
+    {
+        return $"Roue de {pouces}";
+    }
+}
+
+

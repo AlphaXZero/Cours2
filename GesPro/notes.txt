@@ -22,7 +22,11 @@ Could have peut faire si pas impact ds autres (si tps et budg)
 o
 Wont have this time but future? luxe
 ------------------------------------------
-charte
+Risque
+conditionel = risque
+parceque = cause
+il y aura = impact
+
 
 
 

@@ -177,7 +177,9 @@ Plages (ranges) :
 ```csharp
 var maListe = new ArrayList();
 var maListeTyped = new List<int>();
+var maListtyped = new List<int>{1,2,3};
 maListeTyped.Add(1);
+maliste.count()
 ```
 
 ### Dictionnaires
@@ -189,6 +191,11 @@ maHashtable["clé"] = 43;
 foreach (DictionaryEntry entry in maHashtable) { }
 
 var monDico = new Dictionary<string, int>();
+monDico.ContainsKey(number) //return bool
+monDico.Add("xxxx",45)
+mondico.Remove("xxx")
+Accounts.Keys 
+Account.Values
 ```
 
 ---
@@ -279,3 +286,39 @@ static class Exemple {
 
 ---
 
+## Namespaces
+```csharp
+using system; # mtn c sharp le fait tout seul
+namespace Cours{
+    class Program{
+        static void Main(string[] args){
+            system.console.writeline
+        }
+    }
+}
+```
+using permet d'import
+ 
+### Encapsulation
+voiture     
+-Moteur - = privé    
++DemarerVoiture() + = public
+
+- public parout
+- protected classe + enfants
+- private classe
+- internal accessicible ds projet
+
+### getter et setter
+```csharp
+public class Personne
+{
+private int age;
+public int Age
+{
+get{return age;}
+set{age=value;}
+}
+}```
+ //ou
+public int Age{get;set;}
