@@ -322,3 +322,41 @@ set{age=value;}
 }```
  //ou
 public int Age{get;set;}
+```
+## héritage
+```csharp
+class person{
+    age=
+}
+class person: etudiant{
+    etudes=
+}
+```
+
+### override
+```csharp
+public override void ToString(){}
+```
+
+### base
+```csharp
+class oui(){
+    se presenter()
+}
+class oui.non(){
+    base.se presenter()
+}
+```
+- private la classe
+- protected la classe et ses enfants
+- public partout
+ ### sealed 
+ pour empêcher héritage
+
+## Classes abstraites
+```csharp
+abstract class
+
+```
+
+## Polymorphisme

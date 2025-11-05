@@ -113,37 +113,61 @@ Protcole le plus employé dans la couche 2.
 6oct destination MAC | 6oct source MAC | 2oct EtherType | 46 - 1500 oct Payload | 4oct crc
 
 #### switch
-S'occupe de la couche 2. Boîtier avec plusieurs 8p8, contrairement au hub qui envoie partout, le switch décode l'entête de la trame pour l'envoyer au bon port
+S'occupe de la couche 2. Boîtier avec plusieurs 8p8, contrairement au hub qui envoie partout, le switch décode l'entête de la trame pour l'envoyer au bon port, donc meilleur que hub qui envoie les données sur tous les ports.    
+Le switch possède une table de correspondace avec des mac adresses (port du switch à mac adress).   
+- PC1 envoie à PC2  
+si switch a macadd pc2 dans table -> envoie    
+sinon envoie à tout le monde    
+switch meilleur que hub car collissions moindres. CSMA/CD moins solicité. switch = full-duplex
 
+## La couche réseau
+### Protocole IP
+- ip = numéro identification logique.     
+- 2 ordis communiquent ensembles grâce à carte réseau en envoyant des trames contenant l'adresse de destination.
+#### classes d'addresses
+avant classes (a grande ,b moy ,c pt)   
+mtn,CIDR, pour diminuer taille table de routage     
 
+fournisseur donne un bloc d'addresses afin de créer des sous réseaux
 
-## Routage
+#### adress ipV4
+32 bits regoupés en 4 octets.
+max 2^32
+notation séparé par .
+#### addresse ipv6
+128 bits soit 16 octets.
+notation en hexa séparé par :   
+adresses sont réservés :
+- 0.0.0.0 ou ::0    
+route par défaut
+- 127.0.0.1 (ou ::1)    
+localhost
+- adresse de diffusion ou brodcast  
+désigne tous les postes du réseua   
+mettre tous les bits réservé à 1 pour l'obtenir
+- adresses privés
+#### masques de sous réseau
+distinguer bits adresse ip utilisés pour identifier sous réseau de ceux de hôte. adresse de sous réseau obtenu en faisant un AND entre ip et masque     
+ne sert qu'au routeur pour savoir sur quelle couche comuniquer
+### protocole ARP
+table arp conserve assocations MAC/IP.  
+- pour que ordi connait mac du routeur :              
+ordinateur va émettre requêtre arp (192.168.0.1 ou ::O) et routeur va envoyer son adress mac. les 2 écrivent dans leur table.
 
-En réalité, le masque ne sert qu'au routage. Si ordis sur même réseau, ils peuvent dialoguer via la couhce LNK.     
-Si réseaux différents, système envoie les données en couche NET. le routeur dispose de plusieurs interfaces réseau. le routeur dispose de plusieurs adresses MAC.   
-Le routeur possède une table de routage.
+### protocole ICMP
+utiliser par routeur, permet de vérifier les erreurs
+## Routeur
+relier réseaux entre eux et choisir meilleur chemin.        
+- les routeurs sont dotés de connecteurs appelés port de gestion. 
+pas utiliser pour transfert paquet 
+- possèdent plusieurs interfaces réseaux chaque interface permet de se connecter à un réseau, le routeur possède plusieurs adresses MAC     
+- possède table de routage avec liste des autres routeurs.
+### Route
+route par défaut => route à suivre si connait pas adresse destination, ça s'appelle passerelle.
+#### Exemple
+adr mac routeur | adr mac source | type |
 
-### IPV6 :
-- espace d'adressage quasi infini.
-- Simplifie le routage.
-- On peut condigurer automatiquement des adresses.
-- Unicast (point à point), Multicast (sous-groupe), anycast (celui qui a besoin va chercher info)
-
-Elle est composée de 8 x 4 chiffres hexa séparés par ':'.
-Souvent quand :0000:0000: => :::
-
-### Protocole ARP
-
-Rôle = correspondre adress IP et adress MAC.    
-Envoie un message partout et attend un retour.  
-"Je suis xx je dois joindre xx est-il sur réseau local ??"  
-"Je suis Macadress xx et ip xx et je réponds à xxx"
-
-### Protocole ICMP
-
-permet au routeur de gérer infos relatives aux erreurs des machines connectées sur le réseau.
-
-# Transport
+## Couche Transport
 
 Pour la couche 4, cette adress spécifique se nomme le port. Utlisé par les couches du dessus pour écouter les clients.  
 les 1024 premiers ports sont réservés.
@@ -155,29 +179,29 @@ les 1024 premiers ports sont réservés.
 - Port 25 = port smtp (envoie mail)
 - Port 53 = DNS
 
-Ordi peut être client et seveur. => netstat -an.    
+### exemple 
+navigateur interroge par défaut le port 80 d'un serveur, l'os va spécifier aléatoirement un port de connexion et faire une demande en specifiant son port, le serveur enverra l'autorisation / son port aussi ce qui libérera le port 80
 
-Avant de se co au serv google. L'os va spécifier aléatoirment un port de connexion après les 1024. google utilisera ce port pour envoyer les réponses.  
-Le serveur enverra en réponse un autre port choisi aléatoirment.
+### TCP (transport control protocol)
+connecté, controle que chaque octet est bien reçu avec three way handshake avec des numéros de quéquences
 
-## TCP VS UDP
+### udp
+simplifié, plus rapide, utilisé pour streaming par ex. pas besoin de savoir destination.
+### firewall
+- firewall matériel filtrer les ports et les masques
+- firewall logiciel controle les accès des différentes applis web avec gardiens
+## Couche Application
+### dns
+- domain name system
+serveur DNS c'est ce qui traduit le nom en adresse ip.
+- Quand on tape une adresse, ou envoie une requête dns query à un serveur dns en lui demandant l'adresse ip. Si dns connait il envoie une requête dns reponse avec l'adresse. sinon demande à un autre dns si personne connait envoie nulle
+### dhcp
+dynamic host configuration, gère les adresses ip des ordi co.       
+dhcp donne une adresse ip temporaire valable un certains temps.
+### http
+hypertexte transfer protocol
+permet de tranferer des fichiers html grace à url entre nav et serv.
+### ssh
+permet de faire une session protégé avec un serv.
 
-Transport control protocol = plus lent mais vérifie que bien arrivé  .   
-Udp envoie juste.
 
-Tcp = le plus utilisé. Permet transport fiable.     
-Il reste en contact avec le correspondant.      
-Contrôle chaque octet, Tcp va établir une co avec un système nommé THREE-WAY-HANDSHAKE
-
-## QUICK
-Mélange d'udp et tcp dévellopé par google.      
-C'est le protocole de base au HTTP 3.0.
-
-## Firewall
-Le firewall va masquer les ports d'un ordinateur.       
-Firewall matériel est inclus dans la box, ça masque tous les ports sauf le port 81 par exemple.     
-Firewall software va mettre des gardiens sur ces ports ouverts.
-
-# Application
-
-Gérée par OS. DNS, DHCP et sockets.

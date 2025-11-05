@@ -340,12 +340,133 @@ dans header.php
 \<?=$var> == <?php echo "$var">
 
 ## Formulaires
+
  ```html
  <form action="/action_page.php">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
+  <input type ="hidden" name="formName" value="form01">
   <label for="lname">Last name:</label><br>
   <input type="text" id="lname" name="lname" value="Doe"><br><br>
   <input type="submit" value="Submit">
+  <button type="submit" >oui</button>
 </form> 
  ```
+method =    
+get -> affiche en haut     
+psot -> n'affiche pas en haut
+
+Pour récup : 
+```php
+<?php     
+var_dump($_get/$_post) 
+```
+
+Pour tester post:
+```php
+if ($_DERVER['Request_Method']== 'POST'){
+    var_dump($_post["prenom"])
+}
+```
+
+NE PAS FAIRE CONFIANCE A USER
+Meilleur option: (peut-mettre $regle dans autre dossier)
+```php
+<?php
+function nettoyerEntreeUtilisateur(array $entreesUtilisateur, string $nomChamp): string
+{
+    return trim($entreesUtilisateur[$nomChamp] ?? '');
+}
+
+function estRempli(string $entreeUtilisateur): bool
+{
+    return $entreeUtilisateur != '';
+}
+
+function respecteLongueurMinEtMax(string $entreeUtilisateur, int $longueurMin, int $longueurMax): bool
+{
+    return mb_strlen($entreeUtilisateur) >= $longueurMin
+        && mb_strlen($entreeUtilisateur) <= $longueurMax;
+}
+
+function verifierValiditeChamps(array $reglesDesChamps, array $entreesUtilisateur): array
+{
+    $erreurs = [];
+
+    // Accéder à toutes les règles de chaque champ :
+    foreach ($reglesDesChamps as $nomDuchamp => $reglesDuChamp)
+    {
+        $valeurDuChamp = nettoyerEntreeUtilisateur($entreesUtilisateur, $nomDuchamp);
+
+        // Si le champ est vide :
+        if (!estRempli($valeurDuChamp))
+        {
+            // Stocker le message d'erreur approprié si le champ est REQUIS :
+            if (
+                isset($reglesDuChamp['requis'])
+                && $reglesDuChamp['requis'] === true
+            )
+            {
+                $erreurs[$nomDuchamp] = '<p>Ce champ est requis!</p>';
+            }
+        }
+        else
+        {
+            if (
+                isset($reglesDuChamp['longueurMin'])
+                && isset($reglesDuChamp['longueurMax'])
+                && !respecteLongueurMinEtMax($valeurDuChamp, $reglesDuChamp['longueurMin'], $reglesDuChamp['longueurMax'])
+            )
+            {
+                $erreurs[$nomDuchamp] = "<p>Ce champ doit comprendre entre {$reglesDuChamp['longueurMin']} et {$reglesDuChamp['longueurMax']} caractères!</p>";
+            }
+        }
+    }
+
+    return $erreurs;
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST")
+{
+    $reglesDesChamps = [
+        'nom' => [
+            'requis' => true,
+            'longueurMin' => 2,
+            'longueurMax' => 255
+        ],
+        'prenom' => [
+            'longueurMin' => 2,
+            'longueurMax' => 255
+        ],
+        'message' => [
+            'requis' => true,
+            'longueurMin' => 10,
+            'longueurMax' => 3000
+      ]
+    ];
+
+    $erreurs = verifierValiditeChamps($reglesDesChamps, $_POST);
+
+    // S'il n'y a aucune erreur, stocker le message de validation du formulaire :
+    if (empty($erreurs))
+    {
+        $formMessage = "<p>Formulaire envoyé avec succès!</p>";
+    }
+}
+?>
+
+```
+
+# Errors
+lever une exception :
+```php
+try{
+    throw new Exception("oiu")
+}
+catch (Exception $e){
+    echo "$e->getMessage()"
+}
+```
+
+$t instanceof Exception
+getTrace()
+
+

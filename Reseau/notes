@@ -117,3 +117,60 @@ la box 192.168.0.0
 plusiers services avec plusieurs pc
 
 voir calc
+------------------
+
+Typst avec tiny myst
+
+Faire un serveur linux
+En machine virtuel, avec un réseau virtuel.
+Le serveur aura une ip statique, dépendant d'un plan d'adressage.
+Le serveur doit être protégé contre les crash disk.
+Il faudrait dans l'idéal que les accès aux disques soient rapides en lecture.
+Il faudrait dans l'idéal avoir une tolérance de panne de 1 disk. (1 disque peut tomber sans crash de serv) -> il faut justifier le choix de la techno
+Comme c'est un serveur, pas interface grahique, tout config en mode texte. (on peut installer une console graphique mais distante)
+Mise en place de partages de données. (3 partages : windows, linux, accès distant ftp)
+Il faut des utilisateurs, nous + rocky + Anne + anonyme
+Il y aura un dossier publique qui sera read/write en local.
+Un autre dossier data où rocky et anne ont accès en read/write.
+Un répetoire www avec un accè ftp.
+Installer un serveur web.
+Il faut faire un rapport de labo où on explique tout ce qu'on a fait. + citer sources.
+
+mot de passe : admin - mdp : mcnadmin
+Nous avons commencé par télécharger et installer VirtualBox afin d'avoir une machine virtuelle pour héberger notre serveur.
+On a choisi ubuntu server comme iso car c'est un des os pour server les plus populaires, ce qui laisse présager une documentation plus fournie.
+Nous créiames donc cette virtualisation avec 3gb de ram et un disqe virtuel de 40 gb de stockage.
+On a configurer la vm avec un accès par pont pour le réseau afin que notre serveur virtuel ai sa propre adresse ip.
+Nous voulons accéder à notre machine à distance, on a donc installer openssh sur le serveur pour pouvoir se connecter avec une clé ssh.
+```
+sudo apt update
+sudo apt upgrade -y
+sudo apt install openssh-server
+sudo nano /etc/default/keybord
+sudo sytemctl enable ssh car le processus n'était pas actif
+sudo sytemctl status ssh
+```
+On récupère l'adresse ip avec ip a  
+
+Mon adresse ip est donc 172.16.117.108 car le 1 est le loppback et le 2 est en state down (car c'est la carte ethernet filaire) donc c'est bien le 3 qu'il faut regarder brd 172.16.119.255 est l'adresse de broadcast ce qui signifie que mon adresse ip est 172.16.117.108
+
+on peut maintenant se connecter avec :
+ssh admin@172.16.117.108
+
+Nous avons essayé de se connecter de mon pc au pc de val avec la clé ssh de la machine virtuelle cepdnant le wi fi ne de l'école permet pas d'envoyer les données car il est surchargé et outs les packets sont perdus genre même un ping ne marche pas. 
+On s'est donc connecter sur mon tel en point d'acces ce qui m'a permis de me connecter à la vm de val.
+
+On a installer appahce 2 pour le serv 
+sudo apt install apache2 -y
+on l'active
+sudo systemctl enable apache2
+sudo systemctl start apache2
+sudo systemctl status apache2
+
+ma page se trouve donc dans /var/www/html/
+
+j'ai changé vite fais la page pour faire un truc joli
+
+
+https://www.raid-calculator.com/default.aspx
+Pour gérer les disks et accetpter une tolereance de 1 disk de crash
