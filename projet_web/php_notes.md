@@ -464,9 +464,110 @@ try{
 catch (Exception $e){
     echo "$e->getMessage()"
 }
-```
+
 
 $t instanceof Exception
 getTrace()
+```
+
+# BDD
+```php
+il faut décrire des trucs avec $dsn
+$dsn ="mysql:host=$nomDuServeur;dbname=$nomBDD;charset=utf8mb4"
+
+$pdo = new PDO($dsn, $utilisateur, $mdp)
+
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO;;ERRMODE_EXCEPTION)
+
+catch(PDOException $e){
+    echo "Erreur d'éxec de requète :{$e->getMessage()}";
+}
+
+$pdo = null; pour libérer bdd
+```
+
+```php
+$pdo->exec($requete);
+
+$rqst = "select * from t_utis"
+$stmt= $pdo->query($rqst);
+
+$util= $stmt->fetchall(PDO::FETCH_ASSOX) pour un dictionnaire
+if ($util){
+
+}
+
+```
+
+where email =:email
+
+$stmt->bindValue(":email",$email,PDO::PARAM_STR)
+$stm->execute();
+$utilisateur = $dm->fetch(PDO::FETCH_ASSOC)
+
+insert into t_commentaire_com (com_auteur,com_contenu)
+
+---
+ 
+# Cookies
+setcookie(
+    string $name,
+    string $value = "",
+    array $options = [
+        'expires' => 0,
+        'path' => "",           // Par défaut, le chemin de la page courante.
+        'domain' => "",         // Par défaut, le domaine de la page courante.
+        'secure' => false,
+        'httponly' => false,
+        'samesite' => ''        // Par défaut, comportement par défaut du navigateur.
+    ]
+): bool
+samesite : - strict : si on change de domaine pas envoyer
+           - lax : accepte que cookier soi envoyer même si autre domaine mais seulement si provient d'un lien
+           - none : cookie envoyé ds ttes les requetes
+-> httponly et secure en true
+```php
+$expiration = time() + 60*24*60
+setcookie('nom','val',['expires'=>$expiration])
+
+#lire
+$cook = $_COOKIE['nomducookie'];
+```
+
+## Variables de session
+
+lancer 
+session_start();
+
+$_Session['utilisatuer_id'] = 5;
+if isset($_Session['utilisateur_id'])
+
+# Regex
+preg_match($regex,$texte) renvoie true false
+on peut mettre aussi $match en param pour avoir une liste
+
+
+
+# host virtual
+sudo nano /etc/apache2/sites-available/html.test.conf
+<VirtualHost *:80>
+    ServerName html.test
+    DocumentRoot /var/www/html
+
+    <Directory /var/www/html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/html_error.log
+    CustomLog ${APACHE_LOG_DIR}/html_access.log combined
+</VirtualHost>
+
+puis activer :
+sudo a2ensite html.test.conf
+sudo systemctl reload apache2
+
+
 
 

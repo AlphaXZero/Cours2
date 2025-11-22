@@ -359,4 +359,68 @@ abstract class
 
 ```
 
-## Polymorphisme
+# Interface
+commencer par un I maj
+```csharp
+public interface Idessinable{
+    void dessiner()
+}
+public class Cercle : Idessinable{
+    public void dessiner()
+}
+```
+
+## garbage collector
+faire interface IDsisposable 
+```csharp
+class Exemple : IDisposable{
+    public void Dispose(){
+        //liberer les ressources ici
+    }
+}
+```
+
+# Constructeurs
+même non que classes sans type de retour 
+```csharp
+class Personne{
+    puclic Personne(){
+
+    }
+}
+```
+on peut mettre plusieurs constructeurs ds 1 même classe
+public person(string nom, string prenom)
+public person(int age)
+
+# Exceptions 
+```csharp
+try{
+    throw new NotimplentedException('En cours de dev')
+}
+cathc(Exception ex){
+    console.WriteLine(ex.Message);
+    throw;
+}
+
+try {
+    10/0
+}
+catch(DivididedByZeroException ex)
+catch(Exception ex)
+finaly{}
+
+
+```
+
+# délégués
+liste chainés de pointeurs typés de fonction
+classe Delegate
+```csharp
+MyDelegate md = MyMethod
+void MyMethod()=Constole.write(hello)
+delegate void MyDelegate();
+```
+on peut ajouter des méthode ou supprimer avec -= ou +=
+
+# évenements

@@ -1,0 +1,25 @@
+# Cours 1
+
+{} ensemble -> liste d'éléments		
+() tuple -> ordre important		
+
+n ligne, p colonne		
+A2,3 2 lignes, 3 colonnes		
+ai,j pour un élém précis		
+
+tenseurs d'ordre 3 = matrice 3d		
+
+pour que matrice soient égales :
+- même taille
+- tous les éléments sont égaux
+
+addition et soustration -> doivent ê même taille
+
+matrice opposé -> - devant chaque truc. addition des 2 doit donner la matrice nulle
+
+## produit matricielle
+ligne x colonnes	
+nombre de colonne première == nombre de ligne deuxième		
+pas commutatif		
+élément neutre => matrice identité 
+
