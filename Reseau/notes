@@ -140,7 +140,7 @@ mot de passe : admin - mdp : mcnadmin
 Nous avons commencé par télécharger et installer VirtualBox afin d'avoir une machine virtuelle pour héberger notre serveur.
 On a choisi ubuntu server comme iso car c'est un des os pour server les plus populaires, ce qui laisse présager une documentation plus fournie.
 Nous créiames donc cette virtualisation avec 3gb de ram et un disqe virtuel de 40 gb de stockage.
-On a configurer la vm avec un accès par pont pour le réseau afin que notre serveur virtuel ai sa propre adresse ip.
+On a configurer le réseau en mode NAT pour éviter que notre machine prenne une adresse ip dejà atribué sur le réseau
 Nous voulons accéder à notre machine à distance, on a donc installer openssh sur le serveur pour pouvoir se connecter avec une clé ssh.
 ```
 sudo apt update

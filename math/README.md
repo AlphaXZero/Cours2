@@ -1,0 +1,1 @@
+Tous les exercices se trouvent à la fin du fichier main. Il suffit de décommenter les lignes correspondantes.
