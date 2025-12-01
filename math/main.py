@@ -145,9 +145,7 @@ def show_specials_matrix():
 
 
 def is_same_size(matrix1: MatrixType, matrix2: MatrixType) -> bool:
-    if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
-        return True
-    return False
+    return len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0])
 
 
 def add_matrix(matrix1: MatrixType, matrix2: MatrixType) -> None | MatrixType:
@@ -172,6 +170,38 @@ def subtract_matrix(matrix1: MatrixType, matrix2: MatrixType) -> None | MatrixTy
     if not is_same_size(matrix1, matrix2):
         return None
     return add_matrix(matrix1, calculate_opposite_matrix(matrix2))
+
+
+def is_multicplicable(matrix1: MatrixType, matrix2: MatrixType) -> bool:
+    return len(matrix1[0]) == len(matrix2)
+
+
+def calculate_multiplication(
+    matrix1: MatrixType, matrix2: MatrixType
+) -> None | MatrixType:
+    if not is_multicplicable(matrix1, matrix2):
+        return None
+    result_matrix = [[0 for _ in range(len(matrix2[0]))] for _ in range(len(matrix1))]
+    for i in range(len(result_matrix)):
+        for j in range(len(result_matrix[0])):
+            result_matrix[i][j] = sum(
+                [x * y for x, y in zip(matrix1[i], [row[j] for row in matrix2])]
+            )
+    return result_matrix
+
+
+def calculate_row_sum(matrix: MatrixType) -> list:
+    row_sum = []
+    for i in matrix:
+        row_sum.append(sum(i))
+    return row_sum
+
+
+def calculate_col_sum(matrix: MatrixType) -> list:
+    col_sum = []
+    for i in range(len(matrix[0])):
+        col_sum.append(sum([row[i] for row in matrix]))
+    return col_sum
 
 
 if __name__ == "__main__":
@@ -221,12 +251,43 @@ if __name__ == "__main__":
     # print_matrix(add_matrix(matrix, opposite))
 
     # Exo 5
-    matrix = create_random_matrix()
-    print("matrice: ")
-    print_matrix(matrix)
-    print("------------")
-    scalar = int(input("Entrez un nombre qui multiplira la matrice: "))
-    print("------------")
-    print_matrix(calculate_scalar_product(matrix, scalar))
+    # matrix = create_random_matrix()
+    # print("matrice: ")
+    # print_matrix(matrix)
+    # print("------------")
+    # scalar = int(input("Entrez un nombre qui multiplira la matrice: "))
+    # print("------------")
+    # print_matrix(calculate_scalar_product(matrix, scalar))
+
+    # Exo 6
+    # matrix1 = create_random_matrix()
+    # matrix2 = create_random_matrix()
+    # matrix1 = [[-2, 1, 1], [-1, 3, 2]]
+    # matrix2 = [[3, 0, -2, 1], [2, -4, 1, 3], [-1, 2, 0, -2]]
+    # print("première matrice : ")
+    # print_matrix(matrix1)
+    # print("------------")
+    # print("deuxième matrice : ")
+    # print_matrix(matrix2)
+    # print("------------")
+    # print("résultat : ")
+    # if not is_multicplicable(matrix1, matrix2):
+    #     print("Impossible")
+    # else:
+    #     print_matrix(calculate_multiplication(matrix1, matrix2))
+
+    # Exo 7
+    # matrix1 = [[-2, 1, 1], [-1, 3, 2]]
+    # print("matrice : ")
+    # print_matrix(matrix1)
+    # print("------------")
+    # print(calculate_row_sum(matrix1))
+
+    # Exo 8
+    # matrix1 = [[-2, 1, 1], [-1, 3, 2]]
+    # print("matrice : ")
+    # print_matrix(matrix1)
+    # print("------------")
+    # print(calculate_col_sum(matrix1))
 
     pass
