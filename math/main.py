@@ -204,6 +204,26 @@ def calculate_col_sum(matrix: MatrixType) -> list:
     return col_sum
 
 
+def calculate_hadamard_multiplication(
+    matrix1: MatrixType, matrix2: MatrixType
+) -> MatrixType:
+    if not is_same_size(matrix1, matrix2):
+        return None
+    matrix_out = [[0 for _ in range(len(matrix1[0]))] for _ in range(len(matrix1))]
+    for i in range(len(matrix1)):
+        for j in range(len(matrix1[0])):
+            matrix_out[i][j] = matrix1[i][j] * matrix2[i][j]
+    return matrix_out
+
+
+def transpose_matrix(matrix: MatrixType) -> MatrixType:
+    result_matrix = [[0 for _ in range(len(matrix))] for _ in range(len(matrix[0]))]
+    for i in range(len(matrix[0])):
+        for j in range(len(matrix)):
+            result_matrix[i][j] = matrix[j][i]
+    return result_matrix
+
+
 if __name__ == "__main__":
     # Exo1
     # show_matrix()
@@ -290,4 +310,27 @@ if __name__ == "__main__":
     # print("------------")
     # print(calculate_col_sum(matrix1))
 
+    # Exo 9
+
+    # Exo 10
+    # matrix1 = create_matrix(4, 4)
+    # matrix2 = create_matrix(4, 4)
+    # print("première matrice : ")
+    # print_matrix(matrix1)
+    # print("------------")
+    # print("deuxième matrice : ")
+    # print_matrix(matrix2)
+    # print("------------")
+    # print("résultat : ")
+    # if not is_same_size(matrix1, matrix2):
+    #     print("Impossible")
+    # else:
+    #     print_matrix(calculate_hadamard_multiplication(matrix1, matrix2))
+
+    # Exo 11
+    matrix1 = create_random_matrix()
+    print_matrix(matrix1)
+    print("------------")
+    matrix1 = transpose_matrix(matrix1)
+    print_matrix(matrix1)
     pass
