@@ -1,4 +1,5 @@
 import random
+import time
 
 MatrixType = list[list[int | float]]
 
@@ -179,8 +180,8 @@ def is_multicplicable(matrix1: MatrixType, matrix2: MatrixType) -> bool:
 def calculate_multiplication(
     matrix1: MatrixType, matrix2: MatrixType
 ) -> None | MatrixType:
-    if not is_multicplicable(matrix1, matrix2):
-        return None
+    # if not is_multicplicable(matrix1, matrix2):
+    #     return None
     result_matrix = [[0 for _ in range(len(matrix2[0]))] for _ in range(len(matrix1))]
     for i in range(len(result_matrix)):
         for j in range(len(result_matrix[0])):
@@ -222,6 +223,13 @@ def transpose_matrix(matrix: MatrixType) -> MatrixType:
         for j in range(len(matrix)):
             result_matrix[i][j] = matrix[j][i]
     return result_matrix
+
+
+def do_exponent_matrix(matrix: MatrixType, exponent: int) -> MatrixType:
+    result = [[i for i in row] for row in matrix]
+    for i in range(exponent - 1):
+        result = add_matrix(result, result)
+    return result
 
 
 if __name__ == "__main__":
@@ -311,6 +319,10 @@ if __name__ == "__main__":
     # print(calculate_col_sum(matrix1))
 
     # Exo 9
+    matrix1 = create_matrix(4, 4)
+    print_matrix(matrix1)
+    print("-------")
+    print_matrix(do_exponent_matrix(matrix1, 2))
 
     # Exo 10
     # matrix1 = create_matrix(4, 4)
@@ -328,9 +340,47 @@ if __name__ == "__main__":
     #     print_matrix(calculate_hadamard_multiplication(matrix1, matrix2))
 
     # Exo 11
-    matrix1 = create_random_matrix()
-    print_matrix(matrix1)
-    print("------------")
-    matrix1 = transpose_matrix(matrix1)
-    print_matrix(matrix1)
+    # matrix1 = create_random_matrix()
+    # print_matrix(matrix1)
+    # print("------------")
+    # matrix1 = transpose_matrix(matrix1)
+    # print_matrix(matrix1)
+
+    # matrix1 = [[2, 2, 1, 3], [-1, 0.1, 1, 0], [1, 3, 1.2, 0.5]]
+    # matrix2 = [[1, 1, 2, 5], [1, 9, 0, 4], [9, 1, 5, 8], [3, 2, 0, 0]]
+    # print_matrix(calculate_multiplication(matrix1, matrix2))
+    # vec_col = [[1], [1], [1], [1]]
+    # vec_ligne = [[1, 1, 1]]
+    # print("-----")
+    # print_matrix(calculate_multiplication(matrix1, vec_col))
+    # print("-----")
+    # print_matrix(calculate_multiplication(vec_ligne, matrix1))
+    # print("-----")
+    # print_matrix(transpose_matrix(matrix1))
+    # print("-----")
+    # print_matrix(transpose_matrix(matrix2))
+    # print("-----")
+    # print_matrix(transpose_matrix(calculate_multiplication(matrix1, matrix2)))
+    # print("-----")
+    # print_matrix(
+    #     calculate_multiplication(transpose_matrix(matrix2), transpose_matrix(matrix1))
+    # )
+    def matMul(A, B):
+        row = len(A)
+        C = [[0 for i in range(row)] for j in range(row)]
+        for i in range(row):
+            for j in range(row):
+                for k in range(row):
+                    C[i][j] += A[i][k] * B[k][j]
+        return C
+
+    matrix1 = create_matrix(100, 100)
+    matrix2 = create_matrix(100, 100)
+    t = time.time()
+    calculate_multiplication(matrix1, matrix2)
+    print(f"la meilleure : {time.time() - t}")
+    t2 = time.time()
+    matMul(matrix1, matrix2)
+    print(f"val : {time.time() - t2}")
+
     pass
