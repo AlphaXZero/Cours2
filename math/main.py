@@ -365,22 +365,22 @@ if __name__ == "__main__":
     # print_matrix(
     #     calculate_multiplication(transpose_matrix(matrix2), transpose_matrix(matrix1))
     # )
-    def matMul(A, B):
-        row = len(A)
-        C = [[0 for i in range(row)] for j in range(row)]
-        for i in range(row):
-            for j in range(row):
-                for k in range(row):
-                    C[i][j] += A[i][k] * B[k][j]
-        return C
+    # def matMul(A, B):
+    #     row = len(A)
+    #     C = [[0 for i in range(row)] for j in range(row)]
+    #     for i in range(row):
+    #         for j in range(row):
+    #             for k in range(row):
+    #                 C[i][j] += A[i][k] * B[k][j]
+    #     return C
 
-    matrix1 = create_matrix(100, 100)
-    matrix2 = create_matrix(100, 100)
-    t = time.time()
-    calculate_multiplication(matrix1, matrix2)
-    print(f"la meilleure : {time.time() - t}")
-    t2 = time.time()
-    matMul(matrix1, matrix2)
-    print(f"val : {time.time() - t2}")
+    # matrix1 = create_matrix(100, 100)
+    # matrix2 = create_matrix(100, 100)
+    # t = time.time()
+    # calculate_multiplication(matrix1, matrix2)
+    # print(f"la meilleure : {time.time() - t}")
+    # t2 = time.time()
+    # matMul(matrix1, matrix2)
+    # print(f"val : {time.time() - t2}")
 
     pass

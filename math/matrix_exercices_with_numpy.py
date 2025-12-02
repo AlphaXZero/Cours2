@@ -10,6 +10,9 @@ from logical_matrix_numpy import (
     fill_matrix,
     do_addition,
     is_multiplicable,
+    get_col_sum,
+    get_row_sum,
+    do_exponent_matrix,
 )
 import random
 
@@ -128,6 +131,49 @@ def do_exercise_7():
     print("-------------")
     matrix = generate_matrix((random.randint(1, 7), random.randint(1, 7)))
     print(f"matrice aléatoire:\n {matrix}")
+    print(f"somme des colonnes:\n {get_col_sum(matrix)}")
+
+
+def do_exercise_8():
+    print("Exercice VIII")
+    print("-------------")
+    matrix = generate_matrix((random.randint(1, 7), random.randint(1, 7)))
+    print(f"matrice aléatoire:\n {matrix}")
+    print(f"somme des lignes:\n {get_row_sum(matrix).reshape((matrix.shape[0], 1))}")
+
+
+def do_exercise_9():
+    print("Exercice IX")
+    print("-------------")
+    random_row = random.randint(1, 7)
+    matrix = generate_matrix(((random_row, random_row)))
+    print(f"matrice carré aléatoire:\n{matrix}")
+    power = int(input("qu'elle puissance souhaitez vous ?"))
+    print(do_exponent_matrix(matrix, power))
+
+
+def do_exercise_10():
+    print("Exercice IX")
+    print("-------------")
+    rowcol1 = (
+        int(input("Entrez le nombre de lignes souhaité pour la matrice A: ")),
+        int(input("Entrez le nombre de colonnes souhaité pour la matrice A: ")),
+    )
+    rowcol2 = (
+        int(input("Entrez le nombre de lignes souhaité pour la matrice B: ")),
+        int(input("Entrez le nombre de colonnes souhaité pour la matrice B: ")),
+    )
+    if rowcol1 != rowcol2:
+        print("impossible car tailles différentes")
+    else:
+        print("\npremière matrice:")
+        matrix1 = fill_matrix(generate_zero_matrix(rowcol1), "A")
+        print(matrix1)
+        print("deuxième matrice:")
+        matrix2 = fill_matrix(generate_zero_matrix(rowcol2), "B")
+        print(matrix2)
+        print("prosuit d'Hadamard:")
+        print(matrix1 * matrix2)
 
 
 if __name__ == "__main__":
@@ -136,4 +182,8 @@ if __name__ == "__main__":
     # do_exercise_3()
     # do_exercise_4()
     # do_exercise_6()
+    # do_exercise_7()
+    # do_exercise_8()
+    # do_exercise_9()
+    do_exercise_10()
     pass
