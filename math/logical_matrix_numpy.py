@@ -55,7 +55,10 @@ def do_addition(matrix1: np.ndarray, matrix2: np.ndarray) -> None | np.ndarray:
     return np.add(matrix1, matrix2) if is_additionnable(matrix1, matrix2) else None
 
 
+def is_multiplicable(matrix1: np.ndarray, matrix2: np.ndarray) -> bool:
+    return len(matrix1[0]) == len(matrix2)
+
+
 if __name__ == "__main__":
     oui = generate_matrix((3, 4))
-    non = generate_matrix((3, 4))
-    print(do_addition(oui, non))
+    print(oui)

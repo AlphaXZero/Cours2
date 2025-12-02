@@ -9,7 +9,9 @@ from logical_matrix_numpy import (
     generate_zero_matrix,
     fill_matrix,
     do_addition,
+    is_multiplicable,
 )
+import random
 
 
 def do_exercise_1():
@@ -78,9 +80,60 @@ def do_exercise_3():
     print(do_addition(matrix1, matrix2))
 
 
+def do_exercise_4():
+    print("Ecxercice IV")
+    print("-------------")
+    matrix = generate_matrix((random.randint(1, 7), random.randint(1, 7)))
+    opposite_matrix = -matrix
+    print(f"matrice de base: \n {matrix}")
+    print(f"matrice opposée: \n {opposite_matrix}")
+    print(f"somme des 2 matrices:\n {do_addition(matrix, opposite_matrix)}")
+
+
+def do_exercise_5():
+    print("Exercice V")
+    print("-------------")
+    matrix = generate_matrix((random.randint(1, 7), random.randint(1, 7)))
+    print(f"matrice aléatoire:\n {matrix}")
+    scalar_input = int(input("Entrez un entier qui multipliera la matrice: "))
+    print(f"matrice résultat :\n {matrix * scalar_input}")
+
+
+def do_exercise_6():
+    print("Exercice VI")
+    print("-------------")
+    print("\npremière matrice:")
+    rowcol = (
+        int(input("Entrez le nombre de lignes souhaité: ")),
+        int(input("Entrez le nombre de colonnes souhaité: ")),
+    )
+    matrix1 = fill_matrix(generate_zero_matrix(rowcol))
+    print(matrix1)
+    print("deuxième matrice:")
+    rowcol = (
+        int(input("Entrez le nombre de lignes souhaité: ")),
+        int(input("Entrez le nombre de colonnes souhaité: ")),
+    )
+    matrix2 = fill_matrix(generate_zero_matrix(rowcol))
+    print(matrix2)
+    print("\nmutliplicatoin des 2 matrices: ")
+    if is_multiplicable(matrix1, matrix2):
+        print(matrix1 @ matrix2)
+    else:
+        print("tailes non compatibles")
+
+
+def do_exercise_7():
+    print("Exercice VII")
+    print("-------------")
+    matrix = generate_matrix((random.randint(1, 7), random.randint(1, 7)))
+    print(f"matrice aléatoire:\n {matrix}")
+
+
 if __name__ == "__main__":
     # do_exercise_1()
     # do_exercise_2()
     # do_exercise_3()
-
+    # do_exercise_4()
+    # do_exercise_6()
     pass
