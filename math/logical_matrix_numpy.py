@@ -47,5 +47,15 @@ def generate_zero_matrix(rowcol: tuple[int, int]) -> np.ndarray:
     return np.zeros(rowcol)
 
 
+def is_additionnable(matrix1: np.ndarray, matrix2: np.ndarray) -> bool:
+    return matrix1.shape == matrix2.shape
+
+
+def do_addition(matrix1: np.ndarray, matrix2: np.ndarray) -> None | np.ndarray:
+    return np.add(matrix1, matrix2) if is_additionnable(matrix1, matrix2) else None
+
+
 if __name__ == "__main__":
-    print(generate_unit_matrix((3, 4)))
+    oui = generate_matrix((3, 4))
+    non = generate_matrix((3, 4))
+    print(do_addition(oui, non))
