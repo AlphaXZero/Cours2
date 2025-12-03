@@ -13,6 +13,7 @@ from logical_matrix_numpy import (
     get_col_sum,
     get_row_sum,
     do_exponent_matrix,
+    get_transpose,
 )
 import random
 
@@ -153,7 +154,7 @@ def do_exercise_9():
 
 
 def do_exercise_10():
-    print("Exercice IX")
+    print("Exercice X")
     print("-------------")
     rowcol1 = (
         int(input("Entrez le nombre de lignes souhaité pour la matrice A: ")),
@@ -176,6 +177,15 @@ def do_exercise_10():
         print(matrix1 * matrix2)
 
 
+def do_exercise_11():
+    print("Exercice X")
+    print("-------------")
+    matrix = generate_matrix((random.randint(1, 7), random.randint(1, 7)))
+    print(f"matrice aléatoire:\n {matrix}")
+    print("-------------")
+    print(f"matrice transposé:\n {get_transpose(matrix)}")
+
+
 if __name__ == "__main__":
     # do_exercise_1()
     # do_exercise_2()
@@ -185,5 +195,6 @@ if __name__ == "__main__":
     # do_exercise_7()
     # do_exercise_8()
     # do_exercise_9()
-    do_exercise_10()
+    # do_exercise_10()
+    do_exercise_11()
     pass

@@ -1,1 +1,2 @@
-Tous les exercices se trouvent à la fin du fichier main. Il suffit de décommenter les lignes correspondantes.
+- every exercises are in the matrix_exercises_with_numpy and matrix_exercises_without_numpy
+- the main.py contains a small benchmark of my functions vs the numpy function's

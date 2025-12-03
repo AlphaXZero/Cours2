@@ -71,6 +71,10 @@ def do_exponent_matrix(matrix: np.ndarray, power: int):
     return np.linalg.matrix_power(matrix, power)
 
 
+def get_transpose(matrix: np.ndarray) -> np.ndarray:
+    return np.transpose(matrix)
+
+
 if __name__ == "__main__":
     oui = generate_matrix((3, 4))
     print(oui)
