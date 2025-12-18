@@ -1,0 +1,87 @@
+# Cours 1
+
+{} ensemble -> liste d'éléments		
+() tuple -> ordre important		
+
+n ligne, p colonne		
+A2,3 2 lignes, 3 colonnes		
+ai,j pour un élém précis		
+
+tenseurs d'ordre 3 = matrice 3d		
+
+pour que matrice soient égales :
+- même taille
+- tous les éléments sont égaux
+
+addition et soustration -> doivent ê même taille
+
+matrice opposé -> - devant chaque truc. addition des 2 doit donner la matrice nulle
+
+## produit matricielle
+ligne x colonnes\
+nombre de colonne première == nombre de ligne deuxième\
+pas commutatif\
+élément neutre => matrice identité 
+
+# Cours 2 
+exercies
+
+# Cours 3 
+1 => blanc\
+0 => noir
+
+- png-> légère perte
+- tif-> scientifique, 3d 
+- jpeg -> + grosse compression avec + grosse perte
+Transformé de fourier convertis ligne de pixels en graphique  
+-> garde que les sommets donc perte
+
+On peut aussi transformer ee histogramme pour repérer l'utilisation de la range ainsi que de voir l'exposition\
+quand grande zone à 0 ou 100, ça veut dire qu'elle est surexposé\
+
+# Cours 3
+## table de correspondance
+modifier chaque pixel en modifiant leur valeur, on peut en faire un graph avec valeur de sortie dur valeur d'entrée
+## filtre linéaire
+flouter une image en prenant un nombre de pixel et en faisant la moyenne de leur valeur pour l'attribuer à tout ce set
+## floue gaussien 
+le centre est + flouté que le bord.
+## filtre dérivatifs
+marquer les contours, augmenter la différence
+## filtre de contour
+pythagore des 2 filrest
+## filtre max
+prend valeur max d'un certain range (3x3,5x5)
+## filtre min
+prend valeur max d'un certain range (3x3,5x5)
+## filtre median 
+flou aussi mais différement
+## extension dynamique
+o fait l'histogramme et on coupe les endroits ou il n'y a pas bcp de pixels,rajoute du relief pour une couleur
+## treshold seuillage
+hisogramme de classe du blanc et du noir pour uq'il y ait le moins de variance possible
+## treshold hystéris 
+un seuil haut et un seuil bas
+## détection de contour avec filtre partage des eaux
+on fait une série de filtre puis floue sur le filtres
+filtre 1, filtre 2, filtre 3, on peut en faire une matrice de ces filtres et ensuite faire un filtre flou dessus
+permet de repérer des petites choses
+## codage des contours
+on peut juste dire ou sont les contours suivants
+on obtient code de freeman
+## Traitement d'image avec SciPy(produit de convolution)
+on prend motif en le renversant et on parcourt la liste en mutlipliant 1 à 1 les trucs puis on additione les 3
+on rajoute des zeros si bord de liste. si nombre paire on rajoute un zéro au début du moritf mais il faudra le renversé
+## moyenne glissante -> enlève les pics
+## homothétie -> zooms (multiplier par une valeur avec 1 filtre 1)
+## translation filtre 001
+## dérivé 0 1 -1
+## convolution matrice en 2 dimension
+d'abord retourné la matrice (pas transposé)
+
+## fréquence spatila
+flou, ou piqué(augmente la netté)
+flou = basse frequence 
+pas flou = haute fréquence
+passe bas coupe le bruit
+avec scipy

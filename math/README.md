@@ -1,2 +1,2 @@
 - every exercises are in the matrix_exercises_with_numpy and matrix_exercises_without_numpy
-- the main.py contains a small benchmark of my functions vs the numpy function's
+- the main.py contains a small benchmark of my functions vs the numpy function' and put the output in the benchmark_results.png
