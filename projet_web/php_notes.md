@@ -1,6 +1,27 @@
 
 # Notes PHP — Récapitulatif Complet
 
+IMPORTANT POUR APACHE:
+sudo micro /etc/apache2/sites-enabled/cookie.t*
+```bash
+<VirtualHost *:80>
+    ServerName oui.test
+    ServerAlias localhost
+    DocumentRoot /var/www/html/modules
+
+    <Directory /var/www/html/modules>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/oui_error.log
+    CustomLog ${APACHE_LOG_DIR}/oui_access.log combined
+</VirtualHost>
+```
+sudo micro /etc/hosts
+et ajouter une ligne 127.0.0.s1 <le_nom.test>
+
 ---
 
 ## Strings
@@ -569,7 +590,47 @@ sudo a2ensite html.test.conf
 sudo systemctl reload apache2
 
 # js
+var = global 
+let = mieux si veut pas global
 
+script src="" defer télécharge totu
+async tout en parrallel mais respecte pas ordre 
 
+export depuis un fichier à la fin pour mettre dans le module (voir cours)
+il faut import ensuite en mettant le chemin
 
+## events
+on sélectionne un élément
+const bouton = document.querySelector('button')
+bouton.onclick = function(){}
+
++Propre:
+element.addEventListener(type(click,mouseover,keydown,input,scroll,...), fonction à appeller)
+supprimer
+element.removeEventListener('click',fonction)
+
+-objet event
+const button = documenet.query
+const gereClick= (event)=>{
+    console.long("element courant de levent: ${event.currentTarget.id})
+}
+
+-recup positoin souris
+const gereMouse =(event)=>
+{
+    const x = event.clientx
+    const y = event.clienty
+}
+window.addeEventListner('mousemove',geremouse)
+window=la fenetre
+
+- recup texte dans formulaire 
+const monInput = doc.querey
+nomInput.value
+
+pour checkbox
+oui.checked
+
+valueAsNumber pour avoir un nombre
+valueAsDate
 

@@ -1,0 +1,122 @@
+cisco packet tracer
+on va utiiliser gns3
+gns3-server
+gns3-gui
+dynamips
+vpcs
+
+virtualisateur de labo avec des images de routeurs réels
+hyperviseur type 1 qemu(niveau matérielle)
+virtualbox type 2, plus lent pas acces direct matérielle, surcouche
+il faut une image de routeur
+
+preferences > console application > putty
+
+routeur = ordinateur
+
+edit config
+2 fichiers 
+-startup config au démarrage
+-running config, c'est la config active 
+
+- on a supprimer le conttenu de startup config dans edit config
+- on fait idle pc (fais tourner le routeur et compare à la vitesse cpu pour calculer un nombre hexa qui sera le nombre d"opérations de pauses pour éviter que le cpu soit en overload) et on choisis un truc avec une etoile si possible 
+- on start et on double clic sur le routeur, on refuse l'autoinstallation 
+- on peut faire des commandes comme : - show ?
+                                      - show cdp (cisco discovey protocol) flood le système pour découvrir les voisins (fais une table de svoisiins) (ça flood bcp et c'est pas bon pour le reseau)
+                                      - show cdp neighbors (voir les trucs co) 
+                                      - show cdp interface (liste les interfaces sur notre routeur, si routeur cablé, le line protocol sera pas down ùaos peut être administratively down pour retirer à chaud)
+                                      - show ip interface (liste les mêmes interfaces mais indique si c'est co sur internet, ça peut planter sur ip mais pas sur cdp)
+                                      - show clock
+                                      - enable = sudo et disable pour quitter
+                                      - clock set 20:49:00 6 sep 2026  
+                                      - setup pour faie l'invit qui pour setup
+                                      - configure terminal (pour configurer le routeur) (on ne peut plus acceder aux commandes d'avant car on est en mode de config sauf si on utilise do avant)
+                                      - show interface <adresse ip> pour avoir addresse mac
+                                      - show ip route (montre que c'est vaitably subnetded(vlsm))
+                                      - show ip arp (montre la table arp (lien mac et ip))
+                                      
+
+                                      EN MODE config:
+                                      - do show conf pour voir le fichier de config
+                                      - clock timezone utc 1 pour changer le timzone en mode config
+                                      - hostname <nom_souhaité>
+                                      - banner (motd | login) pour definir un msg quand quelqu'un se connecte ect
+                                      - enable pour changer motdepasse du mode enable (password visible secret pas visible)
+                                      - enable password cisco
+                                      - enable secret class
+                                      - no enable secret class pour supprimer le mdp
+                                      Pour mettre une adresse ip(toujours en mode config):
+                                      - do show ip int br (premier chiffre indique la banque et le deuxième indique la position sur la banque)
+                                      - int f0/0
+                                      - ip address 172.16.0.5 255.255.255.0 (soit déciaml, dhcp(mauvaise idée), pool(plage d'adresse))
+                                      - sec lien vers reseau
+                                      - no shut
+                                      - no ip address pour enlever l'adresse    
+                                      - do show run pour savoir la config
+                                      - do copy run start (IMPORTATNT POUR SAUVEGARDER)
+                                      
+                                      - int s0/0
+                                      - ip add 10.10.10.1 255.255.255.0 
+                                      - no shut
+                                      => pour serie il faut emettre une frequence, (il y a un émetteur et un récepteur, il faut mettre la clock sur l'émetteur)
+                                      - show controle interface sérite si dce(emeteur) dte(recepteur)
+                                      - clock rate 64000 (en megabits/seconde)
+                                      - full (pour mettre en full duplex)
+
+                                      - on peut tester avec une interface de loopback, pour créer :
+                                      - int l0
+                                      - ip add 172.16.18.1 255.255.0.0 (simulation accès réseau)
+                                      - do ping 172.16.18.1
+                                      - do ping 10.10.10.1 (ne marche pas car rien de l'autre côté)
+                                      - do traceroute172.16.18.1
+                                      => configurer les acces 
+                                      - line con 0 (configurer la console (sécurité physique))
+                                      - password cisco
+                                      - login (activer mdp)
+                                      => Pour eviter que message soit couper en 2
+                                      - logging synchronous
+                                      - exec-timeout 1 (si 1 minutes sans rien changer système se verrouille)
+                                      => confiurer acces à distance (terminaux virtuels)
+                                      - line vty 0 4
+                                      - password cisco
+                                      - loggin
+                                      - logg syn (pour remmetre une ligne propre après la commande)
+                                      - exec-timeout 5
+                                      - transport input telnet (par défaut)
+                                      - transport input ssh
+                                      en config :
+                                      - no ip domain-lookup (pour éviter que lorsque on rate une commande ça ne fait pas de recherches pour voir si c'est un site)
+
+
+
+routage = connaissance des routes pour les trucs autour
+protocoles static(manuel), eigrp(moins utilise, routeur parle entre eux), ospf(pareil mais routeur ne sont pas confiance et demande aux autres), bgp(prend sont temps, box chez nous connecté avec tous les autres boxs, permet de joindre n'importe quelle point)
+serveur = propose des services = couche 7
+DHCP =attribuer une address ip (quelqu'un la demande il la reçoit), ma mac adresse c'est tatata donne ip pitié, ok je donne eplacement 17 pendant un certains temps
+si encore là après tps, renouvelement.  
+Pb quand rédémarre. Dans serveur dhcp, on peut réservé pour qu'il reconnaisse l'adresse et lui donne tjrs la mm ip
+pb quand plusieurs dhcp car ils envoient tous en même temps quand quelqun se connecte 
+DNS=annuaire telephonique
+
+- on met les switch et tout, on les lies peut import le port
+on appelle les réseaux sur notre schéma
+
+éviter de tout démarer en même temps
+tout démarer 1 à 1 avec clicl droit start
+
+dans le pc
+- set pcname xxxx
+- ip <la range la plus petite> <submask>(\25) <gateway(les paquets par defaut deès qu'on sort du réseau ça part par la gateway)>(10.0.0.190)
+- save
+- trace 10.193 montre chemin parcourut
+
+-d'abord faire tous les pcs
+
+dans le routeur 
+l'adresse ip qu'il faut mettre est l'origin
+
+configurer les autres routeurs
+sur la serie
+pour le moment ne voit que les réseaux directement connecté
+il faut un algo pour faire les tables

@@ -1,0 +1,18 @@
+@startuml name
+left to right direction
+
+actor Player
+actor Administrator
+
+Player -- (Create a room)
+Player -- (Join a room)
+Player -- (Choose game settings)
+Player -- (Start the game)
+Player -- (Propose a question)
+
+Administrator -- (Validate a question)
+
+(Start the game) -- (Choose game settings) : <<include>>
+(Propose a question) -- (Validate a question) : <<include>>
+
+@enduml

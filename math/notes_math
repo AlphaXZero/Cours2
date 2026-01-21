@@ -77,7 +77,7 @@ on rajoute des zeros si bord de liste. si nombre paire on rajoute un zéro au d�
 ## translation filtre 001
 ## dérivé 0 1 -1
 ## convolution matrice en 2 dimension
-d'abord retourné la matrice (pas transposé)
+d abord retourné la matrice (pas transposé)
 
 ## fréquence spatila
 flou, ou piqué(augmente la netté)
@@ -85,3 +85,125 @@ flou = basse frequence
 pas flou = haute fréquence
 passe bas coupe le bruit
 avec scipy
+
+## déterminant matrice Det(A) ou |A|
+det = a * d - b * c
+
+x x' x''
+y' y' y''
+z z' z''
+
+x * y' y''
+    z' z''
+
+-y * x' x''
+    z' z''
+
+z * x' x''
+    y' y''
+
+si on change 2 lignes, on change le signe du déterminant mais pas la valeur (mettre tous les zeros dans première colonne)
+
+si 2 lignes ou colonnes identiques, déterminant est nulle
+
+on peut ajouter un multiple a une colonne sans changer la valeur du det
+
+
+- si matrice est triangulaire, produit des déterminants         
+
+## calcul avec le pivot gauss jordan
+on choisit un pivot 
+
+## inverse d'une matrice
+matrice est inversible si det != 0
+cofacteur et comatrice
+facteur au même endroit dune matrice
+pour chaque valeur (-1)i+f det (mij)
+
+inverser en python np.linalg.inv(A)
+
+# Théorie des graphs
+
+graphe = sommets et arrêtes
+## graph non orienté
+les interactions n'ont pas de sens
+on peut enchainer arête 
+arêtes = lien entre 2 nombre
+1-2-3-5
+{si,sj} sont adjacents si relié par arête
+degré de sommet = nombre d'arête d'1 pooint
+la somme des degrés est égale au double d'arête
+ordre d'un graph = nombre de sommets
+taille d'un graph = nombre d'arêtes
+si on a |1-2-5| 4 3-6
+S={1,2,3,4,5,6}
+A={1,2,5},{4}{3,6}
+ordre = 6
+taille = 4
+
+graph complet = tous les sommets sont disctincts
+boucle = arête qui se relie à lui même
+graph simple = pas de boucles et max 1 arête entre 2 sommets
+graph multigraphe = pas simple
+sous graph = partie d'un autre graph
+## chaine
+chaine = enchainement d'arêtes de sommets reliés 
+longueur = nombre d'arpetes
+distance = chemin le plus court possible
+diamêtre = chemin le plus long possible
+chaine fermé = chaine qui revient sur le premier 
+cycle = chane fermé avec toutes les arêtes distincctes
+chaine eulérienne = cycle qui passe par tous les arretes
+graph connexe = si tous les sommets sont reliés entre eux, rien n'est isolé
+
+graph connexe admet une chaine eulérienne si aucun ou 2 sommets de degré impair. Si 2 sommets de degré impair démarre de A finit en B, ou part de B et se finit en A
+cylce eulérien = pareil mais que des sommets pair
+## matrice d'adjacence
+matrice qui représente lien entre sommets
+unicité une fois que l'ordre des sommets est fixé, 1 seul matrice d'adjacence
+## graph orienté 
+si les aretes ont un sens -> arc
+{si,sj} important si = sortant, sj = incident, sj successeur de si, si prédecesseur de sj
+boucle un relie le sommet à lui même
+graphe orienté élémentaire = pas de boucles
+p-graph = max de'arcs à un sommet
+
+demi-degré extérieur ou demi-degré sortant ou d+
+demi-degré intérieur ou demi-degré entrant ou d-
+
+## graph pondéré
+pooid
+## matrixe incidence
++1 si arc part
+-1 si arc arrive
+sommets row, arret col
+si non ordoné = somme des cols est 2
+si ordonne = somme des cols est 0
+## matrice des degrés
+sur diagonale desgré des sommets
+## relation entre matrice d'adjacence et degré
+B = matrice incidence
+A+D = B*transpose(B)
+
+# circuit hamiltoniens
+circuit hamiltonien = passage par tous les sommets une seule fois en revenant au premier
+chemin = passage par tous mais sans revenir forcémenet au premier
+
+# opérations sur les graphes et matrices
+même sommets
+g1 et g2 2 graphes
+g1 U g2 = on combine les arretes sans doubler les arretes
+g1 ∩ g = si les meme
+g1 ~ g2 = complement (not) si existe, existe pas et inversémenet
+g^-1 = inverse = transposition = inverse sens des fleches
+g1 ° g2 = produit
+
+# parcours de graphes
+#bfs
+colorier trucs et mettre dans liste
+# dijkstra
+avec poids sur chemin
+pas de poids négatifs pour éviter boucles
+on regarde à chaque fois le plus petit poids
+avec un tableau ou on retienes chemins le plus court à chaque fois en explorante 
+il faut enregistrer parents à chaque fois pour reconstruire le chemin

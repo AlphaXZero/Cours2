@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Function Exercises</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Function Exercises</h1>
+
+    <section>
+        <h2>Exercise 1–2: Mystery Number</h2>
+        <label>
+            Min:
+            <input type="number" id="minValue">
+        </label>
+        <label>
+            Max:
+            <input type="number" id="maxValue">
+        </label>
+        <button onclick="playMysteryNumber()">Play</button>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Exercise 3–6: Lotto</h2>
+        <label>
+            Amount:
+            <input type="number" id="numberAmount">
+        </label>
+        <label>
+            Min:
+            <input type="number" id="minValueLotto">
+        </label>
+        <label>
+            Max:
+            <input type="number" id="maxValueLotto">
+        </label>
+        <button onclick="showLottoResults()">Show results</button>
+        <p id="lottoResults"></p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Exercise 7: Server Status</h2>
+        <button onclick="displayServerStatus()">Get server status</button>
+        <p id="serverStatus"></p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Exercise 8: Tasks Message</h2>
+        <label>
+            Number of tasks:
+            <input type="number" id="taskAmmount">
+        </label>
+        <button onclick="showTaskMessage()">Show message</button>
+        <p id="taskMessage"></p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Exercise 9: Total Price</h2>
+        <label>
+            Unit price:
+            <input type="number" id="unitPrice">
+        </label>
+        <label>
+            Quantity:
+            <input type="number" id="quantity">
+        </label>
+        <label>
+            Tax rate:
+            <input type="number" id="taxRate">
+        </label>
+        <button onclick="displayTotalPrice()">Calculate</button>
+        <p id="totalPrice"></p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Exercises 10–12: Tasks & Operations</h2>
+        <button onclick="displayLongTasks()">Show long tasks (Ex 10)</button>
+        <p id="longTasks"></p>
+
+        <button onclick="showOperations()">Show operations (Ex 11)</button>
+        <p id="operationResult"></p>
+
+        <button onclick="showTasks()">Show tasks with index (Ex 12)</button>
+        <p id="tasksWithIndex"></p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Exercise 13: Connection Status</h2>
+        <button onclick="showConnectionStatusTrue(true)">Connected</button>
+        <button onclick="showConnectionStatusTrue(false)">Disconnected</button>
+        <p id="connectionStatus"></p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Exercises 14–17: Data Formatting</h2>
+        <button onclick="displayFormattedTasks()">Formatted tasks (Ex 14)</button>
+        <p id="formattedTasks"></p>
+
+        <button onclick="displayUserNames()">User names (Ex 15)</button>
+        <p id="userNames"></p>
+
+        <button onclick="displayProductPrices()">Product prices (Ex 16)</button>
+        <p id="productPrices"></p>
+
+        <button onclick="displayPositiveReviews()">Positive reviews (Ex 17)</button>
+        <p id="positiveReviews"></p>
+        <p id="length"></p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Exercises 18–22: Filters & Statistics</h2>
+        <button onclick="displayActiveUsers()">Active users (Ex 18)</button>
+        <p id="activeUsers"></p>
+
+        <button onclick="displayAvailableProducts()">Available products (Ex 19)</button>
+        <p id="availableProducts"></p>
+
+        <button onclick="displaySales()">Sales (Ex 20)</button>
+        <p id="sales"></p>
+
+        <button onclick="displayAverageSessionTime()">Average session time (Ex 21)</button>
+        <p id="totalSessionTime"></p>
+        <p id="averageSessionTime"></p>
+
+        <button onclick="displayFinishedTasksStats()">Finished tasks stats (Ex 22)</button>
+        <p id="finishedTasks"></p>
+    </section>
+
+</body>
+
+</html>

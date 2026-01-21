@@ -41,7 +41,8 @@ use case = cas d'utilisations, ex: acteur utilise une fct° \
 max 8/9 cas d'utilisations\
 acteur doit obligatoirement interagir avec au moins 1 fonction\
 acteurs à gauches : primaires\
-acteurs à droites : secondaires : acteurs solicités par le système\
+acteurs à droites : secondaires : acteurs solicités par le système ex:  bankeys\
+Par exemple, pour traiter le passage en caisse : le caissier est un acteur principale client est un acteur secondaire
 Il peut y avoir des acteurs spécialisés qui héritent d'un autre acteur et qui ont un lien en plus\
 Egalement entre les fonctions,
 - "include" pour retirer de l'argent oblier de passer par s'authentifier\
@@ -53,7 +54,6 @@ metttre les priotités ensuite avec des itérations\
 )
 
 == User story
-
 décire les fonctions, quelles sont les étapes d'abord de manière triviale puis détaillé\
 mettre la post condition\
 Ex: retirer de l'argent = résultat attendu
@@ -62,3 +62,18 @@ précondtion : le client est authentifié
 Ex:
 Traiter le passage en caisse
 précondtion :  le tpv est en service, un caissier est connecté
+
+
+=== Types de scénarios
+- nominal : tout se passe bien
+- alternatif : le client décide de ne pas acheter un article
+- d'exception : le tpv ne répond pas
+on detail tout après
+titre
+résumé
+acteurs principal et secondaire
+acteur à gauche et interraction avec le systeme à droite
+voir slides profs
+
+==
+#linebreak()
