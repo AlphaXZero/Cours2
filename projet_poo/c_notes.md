@@ -423,4 +423,19 @@ delegate void MyDelegate();
 ```
 on peut ajouter des méthode ou supprimer avec -= ou +=
 
-# évenements
+# états de l'appli
+## singleton, créé une fois 
+
+ ```csharp
+ App state{
+     counter}
+ builder.Services.AddSingleton<appstate>()
+ 
+ ds un aute fichier 
+ @inject appastat appstate
+ ```
+
+## sauvegarde
+ds navigatuer il y a un localStorage en js
+c'est un dico qui enregesitre indorme sous forme clé, valeur
+on peut injecter IJSRuntime JS et utliser localStorage.setitem et localStorate.getitem

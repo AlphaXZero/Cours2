@@ -634,3 +634,12 @@ oui.checked
 valueAsNumber pour avoir un nombre
 valueAsDate
 
+# classes gestion
+pour ajouter une classe get element avant
+
+ampoul.classList.toggle("alerte")
+pour savoir si elle fait partie de la classe
+ampoul.classList.contains("alerte")
+
+ne pas utilise sauf cas particulier ex : truc sur la souris
+ampoule.style.backgroundColor = "green"

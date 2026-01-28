@@ -36,7 +36,7 @@ edit config
                                       - show ip route (montre que c'est vaitably subnetded(vlsm))
                                       - show ip arp (montre la table arp (lien mac et ip))
                                       
-
+                                      conf t
                                       EN MODE config:
                                       - do show conf pour voir le fichier de config
                                       - clock timezone utc 1 pour changer le timzone en mode config
@@ -117,6 +117,150 @@ dans le routeur
 l'adresse ip qu'il faut mettre est l'origin
 
 configurer les autres routeurs
+-int s0/0 des 2 côtés
+-ip address
+-no shut
+-clock 64000
 sur la serie
 pour le moment ne voit que les réseaux directement connecté
 il faut un algo pour faire les tables
+- pour voir la table
+show ip interface brief
+sh ip route
+on voit que c'est C( connecté)
+le pc 3 est dans la table mais ne connait pas la route
+pour config table
+- do copy run start 
+
+conf t 
+ip route 10.0.0.228 255.255.255.252 10.0.0.226
+ip route 10.0.0.232 255.255.255.252 10.0.0.226
+ip route 10.0.0.0 255.255.255.128 10.0.0.226
+
+ip route 10.0.0.0 255.255.255.128. s0/1
+ip orute 10.0.0.128 255.255.255.144 s0/1
+10.0.0.192 255.255.255.224 s0/1
+
+[1=confiance, 0= poids(pour passer payer 80 points)]
+
+Pour R5
+on peut le config car trajet d'évitement,
+- de base load balance pour répartir le traffic |e| 2 routes
+- chemin backup avc même distance admin, si y en a 1 qui pete prend relai
+exit
+ip route pour r5
+ip route 10.0.0.224 255.255.255.252 s0/1
+ip route 10.0.0.224 255.255.255.252 s0/0 20(pour dire que c'est plus long)
+ip route 10.0.0.232 255.255.255.252 s0/0 
+ip route 10.0.0.232 255.255.255.252 s0/1 20(pour dire que c'est plus long)
+ip route 10.0.0.228 255.255.255.252 s0/0
+ip route 10.0.0.228 255.255.255.252 s0/1
+
+ici r3 est 0/2
+r2 est 0/2
+r/5 vers r3 est 0/0
+r5 vers r2 est 0/1
+
+- on peut aussi faire une route par défaut
+route 0.0.0.0 mask 0.0.0.0
+
+
+--------------------------------------------------------------------------------------
+POUR FAIRE EN DYNAMQIUE:
+
+on peut click droit et config le r avc des switchs
+172.16.128.0/16
+pc1 => 75
+pc2 => 120
+pc3 => 120
+
+on peut faire un genre de script
+
+R1
+ena 
+conf t
+int f0/0
+ip add 172.16.128.254 255.255.255.128 (on prend la dernière ou la première dans la range dispo dans l'excel)
+desc Reseau2
+no shut
+int f0/1
+ip add 172.16.129.126 255.255.255.128
+desc Reseau3
+no shut
+int f1/0
+ip add 172.16.129.130 255.255.255.252 (on prend la droite de la range car le trouteur est à droite)
+desc R1R2
+no shut
+do copy run start
+
+on peut copier coller après
+
+R2
+ena 
+conf t
+int f0/0
+ip add 172.16.129.129 255.255.255.252
+desc R2R1
+no shut
+int f1/0
+ip add 172.16.129.142 255.255.255.252
+desc R2R5
+no shut
+int f0/1
+ip add 172.16.129.134 255.255.255.252
+desc R2R3
+no shut
+do copy run start
+
+R3
+ena 
+conf t
+int f0/0
+ip add 172.16.129.133 255.255.255.252
+desc R3R2
+no shut
+int f0/1
+ip add 172.16.129.138 255.255.255.252
+desc R3R4
+no shut
+do copy run start
+
+R4
+ena 
+conf t
+int f0/0
+ip add 172.16.129.137 255.255.255.252
+desc R4R3
+no shut
+int f1/0
+ip add 127.16.129.145 255.255.255.252
+desc R4R5
+no shut
+int f0/1
+ip add 172.16.128.126 255.255.255.252
+desc reseau1
+no shut
+do copy run start
+
+R5
+ena 
+conf t
+int f0/0
+ip add 172.16.129.141 255.255.255.252
+desc R5R2
+no shut
+int f0/1
+ip add 172.16.129.146 255.255.255.252
+desc R5R4
+no shut
+do copy run start
+
+    N*	 NBR	MAG	MA  NET	            FROM	        TO 	            BROAD
+	1	  120	128	/25	172.16.128.0	172.16.128.1	172.16.128.126	172128128127
+    2	  120	128	/25	172.16.128.128	172.16.128.129	172.16.128.254	172.16.128.255
+    3	   75	128	/25	172.16.129.0	172.16.129.1	172.16.129.126	172.16.129.127
+    R1R2	2	4	/30	172.16.129.128	172.16.129.129	172.16.129.130	172.16.129.131
+    R2R3	2	4	/30	172.16.129.132	172.16.129.133	172.16.129.134	172.16.129.135
+    R3R4	2	4	/30	172.16.129.136	172.16.129.137	172.16.129.138	172.16.129.139
+    R2R5	2	4	/30	172.16.129.140	172.16.129.141	172.16.129.142	172.16.129.143
+    R4R5	2	4	/30	172.16.129.144	172.16.129.145	172.16.129.146	172.16.129.147

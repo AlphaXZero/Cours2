@@ -108,3 +108,14 @@ B 1 1 0 3 5 i
 C 1 1 0 3 4 6
 F 1 1 0 3 4 5
 A 1 1 0 3 4 5
+
+Exo dijkstra
+si non pondéré on met tout à 1
+  A  B  C  D  E  F  G
+A 0  9  20 17 i  i  i
+B 0  9  20 17 39 i  i
+D 0  9  20 17 39 i  67
+C 0  9  20 17 39 60 67
+E 0  9  20 17 39 41 67
+F 0  9  20 17 39 41 49
+G 0  9  20 17 39 41 49
